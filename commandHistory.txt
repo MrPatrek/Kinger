@@ -1,0 +1,177 @@
+
+
+    ~/DevProjects/dotnet/DatingApp    main    dotnet --info                                                                                       ✔ 
+.NET SDK:
+ Version:   7.0.305
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    dotnet -h                                                                                           ✔ 
+Usage: dotnet [runtime-options] [path-to-application] [arguments]
+
+Execute a .NET application.
+
+runtime-options:
+  --additionalprobingpath <path>   Path containing probing policy and assemblies to probe for.
+  --additional-deps <path>         Path to additional deps.json file.
+  --depsfile                       Path to <application>.deps.json file.
+  --fx-version <version>           Version of the installed Shared Framework to use to run the application.
+  --roll-forward <setting>         Roll forward to framework version  (LatestPatch, Minor, LatestMinor, Major, LatestMajor, Disable).
+  --runtimeconfig                  Path to <application>.runtimeconfig.json file.
+
+path-to-application:
+  The path to an application .dll file to execute.
+
+Usage: dotnet [sdk-options] [command] [command-options] [arguments]
+
+Execute a .NET SDK command.
+
+sdk-options:
+  -d|--diagnostics  Enable diagnostic output.
+  -h|--help         Show command line help.
+  --info            Display .NET information.
+  --list-runtimes   Display the installed runtimes.
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    dotnet new list                                                                                     ✔ 
+These templates matched your input: 
+
+Template Name                                 Short Name          Language    Tags                            
+--------------------------------------------  ------------------  ----------  --------------------------------
+ASP.NET Core Empty                            web                 [C#],F#     Web/Empty                       
+ASP.NET Core gRPC Service                     grpc                [C#]        Web/gRPC                        
+ASP.NET Core Web API                          webapi              [C#],F#     Web/WebAPI                      
+ASP.NET Core Web App                          webapp,razor        [C#]        Web/MVC/Razor Pages             
+ASP.NET Core Web App (Model-View-Controller)  mvc                 [C#],F#     Web/MVC                         
+ASP.NET Core with Angular                     angular             [C#]        Web/MVC/SPA                     
+ASP.NET Core with React.js                    react               [C#]        Web/MVC/SPA                     
+Blazor Server App                             blazorserver        [C#]        Web/Blazor                      
+Blazor Server App Empty                       blazorserver-empty  [C#]        Web/Blazor/Empty                
+Blazor WebAssembly App                        blazorwasm          [C#]        Web/Blazor/WebAssembly/PWA      
+Blazor WebAssembly App Empty                  blazorwasm-empty    [C#]        Web/Blazor/WebAssembly/PWA/Empty
+Class Library                                 classlib            [C#],F#,VB  Common/Library                  
+Console App                                   console             [C#],F#,VB  Common/Console                  
+dotnet gitignore file                         gitignore                       Config                          
+Dotnet local tool manifest file               tool-manifest                   Config                          
+EditorConfig file                             editorconfig                    Config                          
+global.json file                              globaljson                      Config                          
+MSBuild Directory.Build.props file            buildprops                      MSBuild/props                   
+MSBuild Directory.Build.targets file          buildtargets                    MSBuild/props                   
+MSTest Test Project                           mstest              [C#],F#,VB  Test/MSTest                     
+MVC ViewImports                               viewimports         [C#]        Web/ASP.NET                     
+MVC ViewStart                                 viewstart           [C#]        Web/ASP.NET                     
+NuGet Config                                  nugetconfig                     Config                          
+NUnit 3 Test Item                             nunit-test          [C#],F#,VB  Test/NUnit                      
+NUnit 3 Test Project                          nunit               [C#],F#,VB  Test/NUnit                      
+Protocol Buffer File                          proto                           Web/gRPC                        
+Razor Class Library                           razorclasslib       [C#]        Web/Razor/Library               
+Razor Component                               razorcomponent      [C#]        Web/ASP.NET                     
+Razor Page                                    page                [C#]        Web/ASP.NET                     
+Solution File                                 sln,solution                    Solution                        
+Web Config                                    webconfig                       Config                          
+Worker Service                                worker              [C#],F#     Common/Worker/Web               
+xUnit Test Project                            xunit               [C#],F#,VB  Test/xUnit                      
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    dotnet new sln                                                                                      ✔ 
+The template "Solution File" was created successfully.
+
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    ls                                                                                               ✔ 
+DatingApp.sln  README.md
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    dotnet new webapi -n API                                                                         ✔ 
+The template "ASP.NET Core Web API" was created successfully.
+
+Processing post-creation actions...
+Restoring /home/sanya/DevProjects/dotnet/DatingApp/API/API.csproj:
+  Determining projects to restore...
+  Restored /home/sanya/DevProjects/dotnet/DatingApp/API/API.csproj (in 1.31 sec).
+Restore succeeded.
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    ls                                                                                               ✔ 
+API  DatingApp.sln  README.md
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    dotnet sln -h                                                                                    ✔ 
+Description:
+  .NET modify solution file command
+
+Usage:
+  dotnet sln <SLN_FILE> [command] [options]
+
+Arguments:
+  <SLN_FILE>  The solution file to operate on. If not specified, the command will search the current directory for one. [default: 
+              /home/sanya/DevProjects/dotnet/DatingApp/]
+
+Options:
+  -?, -h, --help  Show command line help.
+
+
+Commands:
+  add <PROJECT_PATH>     Add one or more projects to a solution file.
+  list                   List all projects in a solution file.
+  remove <PROJECT_PATH>  Remove one or more projects from a solution file.
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    dotnet sln add API                                                                               ✔ 
+Project `API/API.csproj` added to the solution.
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    dotnet sln list                                                                                  ✔ 
+Project(s)
+----------
+API/API.csproj
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    code .                                                                                           ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    dotnet new gitignore                                                                             ✔ 
+The template "dotnet gitignore file" was created successfully.
+

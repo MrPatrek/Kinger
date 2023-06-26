@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>  <!-- here it was enable before, we don't need nullable, e.g. we treat strings as optional -->
+    <ImplicitUsings>enable</ImplicitUsings>   <!-- this one is actually useful, we reduce boilerplate in our code -->
   </PropertyGroup>
 
   <!-- Since we removed packages here, we need to run "dotnet restore" afterwards -->

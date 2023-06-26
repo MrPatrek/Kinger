@@ -1,0 +1,70 @@
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main !1    cd API                                                                                                                      ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !1    dotnet tool list -g                                                                                                     ✔ 
+Package Id      Version      Commands
+-------------------------------------
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !1    dotnet tool install --global dotnet-ef --version 7.0.8                                                                  ✔ 
+You can invoke the tool using the following command: dotnet-ef
+Tool 'dotnet-ef' (version '7.0.8') was successfully installed.
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !1    dotnet tool -h                                                                                                          ✔ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !1    dotnet ef                                                                                                               ✔ 
+
+                     _/\__       
+               ---==/    \\      
+         ___  ___   |.    \|\    
+        | __|| __|  |  )   \\\   
+        | _| | _|   \_/ |  //|\\ 
+        |___||_|       /   \\\/\\
+
+Entity Framework Core .NET Command-line Tools 7.0.8
+
+Usage: dotnet ef [options] [command]
+
+Options:
+  --version        Show version information
+  -h|--help        Show help information
+  -v|--verbose     Show verbose output.
+  --no-color       Don't colorize output.
+  --prefix-output  Prefix output with level.
+
+Commands:
+  database    Commands to manage the database.
+  dbcontext   Commands to manage DbContext types.
+  migrations  Commands to manage migrations.
+
+Use "dotnet ef [command] --help" for more information about a command.
+    ~/DevProjects/dotnet/DatingApp/API    main !1    dotnet ef migrations add InitialCreate -o Data/Migrations                                                               ✔ 
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !1 ?1                                                                                                                  ✔  5s  
+
+
+
+
+ 

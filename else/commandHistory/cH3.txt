@@ -1,0 +1,116 @@
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    dotnet ef                                                                                                             ✔ 
+
+                     _/\__       
+               ---==/    \\      
+         ___  ___   |.    \|\    
+        | __|| __|  |  )   \\\   
+        | _| | _|   \_/ |  //|\\ 
+        |___||_|       /   \\\/\\
+
+Entity Framework Core .NET Command-line Tools 7.0.8
+
+Usage: dotnet ef [options] [command]
+
+Options:
+  --version        Show version information
+  -h|--help        Show help information
+  -v|--verbose     Show verbose output.
+  --no-color       Don't colorize output.
+  --prefix-output  Prefix output with level.
+
+Commands:
+  database    Commands to manage the database.
+  dbcontext   Commands to manage DbContext types.
+  migrations  Commands to manage migrations.
+
+Use "dotnet ef [command] --help" for more information about a command.
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    dotnet ef database -h                                                                                                 ✔ 
+
+
+Usage: dotnet ef database [options] [command]
+
+Options:
+  -h|--help        Show help information
+  -v|--verbose     Show verbose output.
+  --no-color       Don't colorize output.
+  --prefix-output  Prefix output with level.
+
+Commands:
+  drop    Drops the database.
+  update  Updates the database to a specified migration.
+
+Use "database [command] --help" for more information about a command.
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    dotnet ef database update                                                                                             ✔ 
+No project was found. Change the current working directory or use the --project option.
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    cd API                                                                                                              1 ✘ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main    dotnet ef database update                                                                                         ✔ 
+Build started...
+Build succeeded.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20230626171313_InitialCreate'.
+Applying migration '20230626171313_InitialCreate'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
+          "UserName" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20230626171313_InitialCreate', '7.0.8');
+Done.
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main ?1                                                                                                                     ✔  5s  
+
+
+ 

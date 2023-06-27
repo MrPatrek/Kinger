@@ -475,3 +475,12 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+
+
+
+# My personal stuff (we don't want to expose our private keys for real deployment, etc.):
+API/appsettings.json
+
+

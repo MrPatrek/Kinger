@@ -1,6 +1,7 @@
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -16,17 +17,17 @@ namespace API.Controllers
         }
 
         [HttpGet]                   // GET method               // link: /api/users
-        public ActionResult<IEnumerable<AppUser>> GetUsers()            // if we do not return ActionResult, then we cannot return e.g. Bad Page error (404), etc. (but we still can return users)
+        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()            // if we do not return ActionResult, then we cannot return e.g. Bad Page error (404), etc. (but we still can return users)
         {
-            var users = _context.Users.ToList();
+            var users = await _context.Users.ToListAsync();
 
             return users;
         }
 
         [HttpGet("{id}")]                                       //  link: /api/users/3 (example)
-        public ActionResult<AppUser> GetUser(int id)
+        public async Task<ActionResult<AppUser>> GetUser(int id)
         {
-            return _context.Users.Find(id);
+            return await _context.Users.FindAsync(id);
         }
 
 

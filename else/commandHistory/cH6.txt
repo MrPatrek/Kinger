@@ -1,0 +1,87 @@
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                                                                               ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    ng add ngx-bootstrap                                                                             ✔ 
+ℹ Using package manager: npm
+✔ Found compatible package version: ngx-bootstrap@0.0.1.
+✔ Package information loaded.
+
+The package ngx-bootstrap@0.0.1 will be installed and executed.
+Would you like to proceed? No
+Command aborted.
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    npm install ngx-bootstrap@9.0.0                                                         1 ✘  6s  
+
+added 1 package, removed 1 package, and audited 977 packages in 7s
+
+135 packages are looking for funding
+  run `npm fund` for details
+
+35 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main !2    npm install bootstrap@5.2.3                                                            ✔  7s  
+
+added 2 packages, and audited 979 packages in 6s
+
+137 packages are looking for funding
+  run `npm fund` for details
+
+35 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main !2    npm install font-awesome                                                               ✔  6s  
+
+added 1 package, and audited 980 packages in 2s
+
+137 packages are looking for funding
+  run `npm fund` for details
+
+35 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+
+
+
+

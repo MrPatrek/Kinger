@@ -1,0 +1,715 @@
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    node --version                                                                                                        ✔ 
+v18.16.1
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    npm --version                                                                                                         ✔ 
+9.5.1
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    npm install -g @angular/cli@14                                                                                        ✔ 
+npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+npm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+
+added 245 packages in 12s
+
+37 packages are looking for funding
+  run `npm fund` for details
+npm notice 
+npm notice New minor version of npm available! 9.5.1 -> 9.7.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v9.7.2
+npm notice Run npm install -g npm@9.7.2 to update!
+npm notice 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    ng version                                                                                                    ✔  12s  
+zsh: correct 'ng' to 'bg' [nyae]? n
+? Would you like to enable autocompletion? This will set up your terminal so pressing TAB while typing Angular CLI commands will show possible options and autocomplete 
+arguments. (Enabling autocompletion will modify configuration files in your home directory.) Yes
+Appended `source <(ng completion script)` to `/home/sanya/.bashrc`. Restart your terminal or run the following to autocomplete `ng` commands:
+
+    source <(ng completion script)
+? Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.io/analytics. No
+Global setting: disabled
+Local setting: No local workspace configuration file.
+Effective status: disabled
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 14.2.12
+Node: 18.16.1 (Unsupported)
+Package Manager: npm 9.5.1 
+OS: linux x64
+
+Angular: 
+... 
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.1402.12 (cli-only)
+@angular-devkit/core         14.2.12 (cli-only)
+@angular-devkit/schematics   14.2.12 (cli-only)
+@schematics/angular          14.2.12 (cli-only)
+    
+Warning: The current version of Node (18.16.1) is not supported by Angular.
+
+
+
+
+
+
+     ~/DevProjects/dotnet/DatingApp    main ?1    nvm install 16.10.0                                                                                                         ✔ 
+Downloading and installing node v16.10.0...
+Downloading https://nodejs.org/dist/v16.10.0/node-v16.10.0-linux-x64.tar.xz...
+################################################################################################################################################################################# 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v16.10.0 (npm v7.24.0)
+
+
+
+
+
+
+
+
+# ... I re-opened the terminal...
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    node -v                                                                                                                     ✔ 
+v18.16.1
+
+
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    nvm alias default 16                                                                                                        ✔ 
+default -> 16 (-> v16.10.0)
+
+
+
+
+
+
+
+
+
+
+# ... I re-opened the terminal...
+
+
+
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    node -v                                                                                                         ✔  16.10.0  
+v18.16.1
+
+
+
+
+
+
+# ... I re-opened the VS Code completely...
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    node -v                                                                                                                     ✔ 
+v16.10.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ... after deleting Angular 14 from Node 18, and then changing the default version to Node 16, and then again installing Angular 14:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ~  node --version                                                                                                                                                                                                               ✔ 
+v16.10.0
+
+
+
+
+
+
+
+
+
+
+    ~  npm --version                                                                                                                                                                                                                ✔ 
+7.24.0
+
+
+
+
+
+
+
+
+
+
+    ~  npm install -g @angular/cli@14                                                                                                                                                                                               ✔ 
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'make-fetch-happen@11.1.1',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'cacache@17.1.3',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'minipass-fetch@3.0.3',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'ssri@10.0.4',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@npmcli/fs@3.1.0',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'fs-minipass@3.0.2',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'unique-filename@3.0.0',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'lru-cache@10.0.0',
+npm WARN EBADENGINE   required: { node: '14 || >=16.14' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'unique-slug@4.0.0',
+npm WARN EBADENGINE   required: { node: '^14.17.0 || ^16.13.0 || >=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.10.0', npm: '7.24.0' }
+npm WARN EBADENGINE }
+npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+npm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+
+added 245 packages, and audited 246 packages in 19s
+
+37 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+
+
+
+
+
+
+
+
+
+
+    ~  ng version                                                                                                                                                                                                           ✔  19s  
+? Would you like to enable autocompletion? This will set up your terminal so pressing TAB while typing Angular CLI commands will show possible options and autocomplete arguments. (Enabling autocompletion will modify configuration files 
+in your home directory.) Yes
+Appended `source <(ng completion script)` to `/home/sanya/.bashrc`. Restart your terminal or run the following to autocomplete `ng` commands:
+
+    source <(ng completion script)
+? Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.io/analytics. No
+Global setting: disabled
+Local setting: No local workspace configuration file.
+Effective status: disabled
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 14.2.12
+Node: 16.10.0
+Package Manager: npm 7.24.0 
+OS: linux x64
+
+Angular: 
+... 
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.1402.12 (cli-only)
+@angular-devkit/core         14.2.12 (cli-only)
+@angular-devkit/schematics   14.2.12 (cli-only)
+@schematics/angular          14.2.12 (cli-only)
+    
+
+
+
+
+
+
+
+
+
+
+
+# ... next day, trying to remove all node versions, and installing the latest Node v16:
+
+
+
+
+
+
+
+
+
+
+
+    ~  nvm ls                                                                                                                                                                                                                       ✔ 
+->     v16.10.0
+       v18.16.1
+default -> 16 (-> v16.10.0)
+iojs -> N/A (default)
+unstable -> N/A (default)
+node -> stable (-> v18.16.1) (default)
+stable -> 18.16 (-> v18.16.1) (default)
+lts/* -> lts/hydrogen (-> v18.16.1)
+lts/argon -> v4.9.1 (-> N/A)
+lts/boron -> v6.17.1 (-> N/A)
+lts/carbon -> v8.17.0 (-> N/A)
+lts/dubnium -> v10.24.1 (-> N/A)
+lts/erbium -> v12.22.12 (-> N/A)
+lts/fermium -> v14.21.3 (-> N/A)
+lts/gallium -> v16.20.1 (-> N/A)
+lts/hydrogen -> v18.16.1
+
+
+
+
+
+    ~  nvm uninstall 16                                                                                                                                                                                                             ✔ 
+nvm: Cannot uninstall currently-active node version, v16.10.0 (inferred from 16).
+
+
+
+
+
+    ~  nvm deactivate                                                                                                                                                                                                             1 ✘ 
+/home/sanya/.nvm/*/bin removed from ${PATH}
+
+
+
+
+
+    ~  nvm uninstall 16                                                                                                                                                                                                             ✔ 
+Uninstalled node v16.10.0
+
+
+
+
+
+    ~  nvm uninstall 18                                                                                                                                                                                                             ✔ 
+Uninstalled node v18.16.1
+
+
+
+
+
+    ~  nvm ls                                                                                                                                                                                                                       ✔ 
+            N/A
+default -> 16 (-> N/A)
+iojs -> N/A (default)
+node -> stable (-> N/A) (default)
+unstable -> N/A (default)
+lts/* -> lts/hydrogen (-> N/A)
+lts/argon -> v4.9.1 (-> N/A)
+lts/boron -> v6.17.1 (-> N/A)
+lts/carbon -> v8.17.0 (-> N/A)
+lts/dubnium -> v10.24.1 (-> N/A)
+lts/erbium -> v12.22.12 (-> N/A)
+lts/fermium -> v14.21.3 (-> N/A)
+lts/gallium -> v16.20.1 (-> N/A)
+lts/hydrogen -> v18.16.1 (-> N/A)
+
+
+
+
+
+    ~  nvm cache clear                                                                                                                                                                                                            3 ✘ 
+nvm cache cleared.
+
+
+
+
+
+    ~  nvm ls                                                                                                                                                                                                                       ✔ 
+            N/A
+default -> 16 (-> N/A)
+iojs -> N/A (default)
+node -> stable (-> N/A) (default)
+unstable -> N/A (default)
+lts/* -> lts/hydrogen (-> N/A)
+lts/argon -> v4.9.1 (-> N/A)
+lts/boron -> v6.17.1 (-> N/A)
+lts/carbon -> v8.17.0 (-> N/A)
+lts/dubnium -> v10.24.1 (-> N/A)
+lts/erbium -> v12.22.12 (-> N/A)
+lts/fermium -> v14.21.3 (-> N/A)
+lts/gallium -> v16.20.1 (-> N/A)
+lts/hydrogen -> v18.16.1 (-> N/A)
+
+
+
+
+
+
+
+
+
+
+# ... tried to clear all nvm and angular traces, re-opened terminal:
+
+
+
+
+
+
+
+
+    ~  nvm install 16                                                                                                                                                                                                               ✔ 
+Downloading and installing node v16.20.1...
+Downloading https://nodejs.org/dist/v16.20.1/node-v16.20.1-linux-x64.tar.xz...
+##################################################################################################################################################################################################################################### 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v16.20.1 (npm v8.19.4)
+
+
+
+
+
+    ~  nvm ls                                                                                                                                                                                                                       ✔ 
+->     v16.20.1
+default -> 16 (-> v16.20.1)
+iojs -> N/A (default)
+unstable -> N/A (default)
+node -> stable (-> v16.20.1) (default)
+stable -> 16.20 (-> v16.20.1) (default)
+lts/* -> lts/hydrogen (-> N/A)
+lts/argon -> v4.9.1 (-> N/A)
+lts/boron -> v6.17.1 (-> N/A)
+lts/carbon -> v8.17.0 (-> N/A)
+lts/dubnium -> v10.24.1 (-> N/A)
+lts/erbium -> v12.22.12 (-> N/A)
+lts/fermium -> v14.21.3 (-> N/A)
+lts/gallium -> v16.20.1
+lts/hydrogen -> v18.16.1 (-> N/A)
+
+
+
+
+
+
+
+    ~  nvm install --lts                                                                                                                                                                                                            ✔ 
+Installing latest LTS version.
+Downloading and installing node v18.16.1...
+Downloading https://nodejs.org/dist/v18.16.1/node-v18.16.1-linux-x64.tar.xz...
+##################################################################################################################################################################################################################################### 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v18.16.1 (npm v9.5.1)
+
+
+
+
+
+
+
+# ... again re-opened terminal:
+
+
+
+
+
+
+
+    ~  nvm ls                                                                                                                                                                                                                       ✔ 
+->     v16.20.1
+       v18.16.1
+default -> 16 (-> v16.20.1)
+iojs -> N/A (default)
+unstable -> N/A (default)
+node -> stable (-> v18.16.1) (default)
+stable -> 18.16 (-> v18.16.1) (default)
+lts/* -> lts/hydrogen (-> v18.16.1)
+lts/argon -> v4.9.1 (-> N/A)
+lts/boron -> v6.17.1 (-> N/A)
+lts/carbon -> v8.17.0 (-> N/A)
+lts/dubnium -> v10.24.1 (-> N/A)
+lts/erbium -> v12.22.12 (-> N/A)
+lts/fermium -> v14.21.3 (-> N/A)
+lts/gallium -> v16.20.1
+lts/hydrogen -> v18.16.1
+
+
+
+
+
+
+
+
+    ~  node -v                                                                                                                                                                                                                      ✔ 
+v16.20.1
+
+
+
+
+
+
+
+
+
+# ... and now, finally, again trying to isntall Angular, but now, using the latest version of Node 16 (since the requirement for Angular 14 is ^14.15.0 || ^16.10.0	)
+
+
+
+
+
+
+    ~  node --version                                                                                                                                                                                                               ✔ 
+v16.20.1
+
+
+
+
+    ~  npm --version                                                                                                                                                                                                                ✔ 
+8.19.4
+
+
+
+
+
+    ~  npm install -g @angular/cli@14                                                                                                                                                                                               ✔ 
+npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+npm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+
+added 245 packages, and audited 246 packages in 5s
+
+37 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+    ~  ng version                                                                                                                                                                                                            ✔  5s  
+? Would you like to enable autocompletion? This will set up your terminal so pressing TAB while typing Angular CLI commands will show possible options and autocomplete arguments. (Enabling autocompletion will modify configuration files 
+in your home directory.) Yes
+Appended `source <(ng completion script)` to `/home/sanya/.bashrc`. Restart your terminal or run the following to autocomplete `ng` commands:
+
+    source <(ng completion script)
+? Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.io/analytics. No
+Global setting: disabled
+Local setting: No local workspace configuration file.
+Effective status: disabled
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 14.2.12
+Node: 16.20.1
+Package Manager: npm 8.19.4 
+OS: linux x64
+
+Angular: 
+... 
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.1402.12 (cli-only)
+@angular-devkit/core         14.2.12 (cli-only)
+@angular-devkit/schematics   14.2.12 (cli-only)
+@schematics/angular          14.2.12 (cli-only)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# IMPORTANT! RESTART VS CODE, not just the terminal inside it! For some reason, it does not automatically fetch node default version correctly in VS Code!
+
+# Also, copy Angular parts from .bashrc to .zshrc
+
+
+# Reopened terminal, now inside VS Code:
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    ng version                                                                                                         ✔ 
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 14.2.12
+Node: 16.20.1
+Package Manager: npm 8.19.4 
+OS: linux x64
+
+Angular: 
+... 
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.1402.12 (cli-only)
+@angular-devkit/core         14.2.12 (cli-only)
+@angular-devkit/schematics   14.2.12 (cli-only)
+@schematics/angular          14.2.12 (cli-only)
+    
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    ls                                                                                                                 ✔ 
+API  DatingApp.sln  else  global.json  README.md
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?1    ng new client                                                                                                      ✔ 
+? Would you like to add Angular routing? Yes
+? Which stylesheet format would you like to use? CSS
+CREATE client/README.md (1061 bytes)
+CREATE client/.editorconfig (274 bytes)
+CREATE client/.gitignore (548 bytes)
+CREATE client/angular.json (2922 bytes)
+CREATE client/package.json (1039 bytes)
+CREATE client/tsconfig.json (863 bytes)
+CREATE client/.browserslistrc (600 bytes)
+CREATE client/karma.conf.js (1423 bytes)
+CREATE client/tsconfig.app.json (287 bytes)
+CREATE client/tsconfig.spec.json (333 bytes)
+CREATE client/.vscode/extensions.json (130 bytes)
+CREATE client/.vscode/launch.json (474 bytes)
+CREATE client/.vscode/tasks.json (938 bytes)
+CREATE client/src/favicon.ico (948 bytes)
+CREATE client/src/index.html (292 bytes)
+CREATE client/src/main.ts (372 bytes)
+CREATE client/src/polyfills.ts (2338 bytes)
+CREATE client/src/styles.css (80 bytes)
+CREATE client/src/test.ts (749 bytes)
+CREATE client/src/assets/.gitkeep (0 bytes)
+CREATE client/src/environments/environment.prod.ts (51 bytes)
+CREATE client/src/environments/environment.ts (658 bytes)
+CREATE client/src/app/app-routing.module.ts (245 bytes)
+CREATE client/src/app/app.module.ts (393 bytes)
+CREATE client/src/app/app.component.css (0 bytes)
+CREATE client/src/app/app.component.html (23115 bytes)
+CREATE client/src/app/app.component.spec.ts (1073 bytes)
+CREATE client/src/app/app.component.ts (210 bytes)
+✔ Packages installed successfully.
+    Directory is already under version control. Skipping initialization of git.
+
+
+
+
+
+
+
+

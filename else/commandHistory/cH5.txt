@@ -713,3 +713,7 @@ CREATE client/src/app/app.component.ts (210 bytes)
 
 
 
+# ... After that, I decided to clean old traces for old installs of Angular (in case they exist), so I ran
+# "npm cache clean --force" and "npm cache verify" for each node version (nvm use xyz).
+# I even deleted ~/.npm folder (cache folder), just to be sure that anything related to OLD (!) Angular is indeed deleted.
+# Anything else was already deleted with nvm (after I uninstalled all previously installed Node versions, after which I installed them again)

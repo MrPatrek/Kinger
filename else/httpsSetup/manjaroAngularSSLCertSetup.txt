@@ -1,0 +1,30 @@
+
+# server.crt file was manually generated (this specific one just for development)
+
+sudo trust anchor --store ~/DevProjects/dotnet/DatingApp/client/ssl/server.crt
+sudo update-ca-trust
+
+
+
+
+# ... and then continue with modifying the options in the angular.json file :
+
+# Insert OPTIONS inside SERVE like in the expample below :
+
+
+
+
+# ... ... ...
+#
+# "serve": {
+#          "options": {
+#            "sslCert": "./ssl/server.crt",
+#            "sslKey": "./ssl/server.key",
+#            "ssl": true
+#          },
+#
+# ... ... ...
+
+
+
+

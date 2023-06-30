@@ -1,0 +1,64 @@
+
+# Clean all previous HTTPS dotnet certificates:
+dotnet dev-certs https --clean
+
+dotnet dev-certs https
+dotnet dev-certs https --trust
+
+# Generate new HTTPS dotnet certificate to the desired location:
+sudo -E dotnet dev-certs https -ep ~/Desktop/dotnetDevHttpsSanyaCert.crt --format PEM
+
+# Import it system-wide and trust:
+!!!!!!!!!!!!!!!!!!!!!!!! does not work !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --> sudo cp ~/Desktop/dotnetDevHttpsSanyaCert.crt /etc/ca-certificates/trust-source/anchors
+
+sudo trust anchor --store ~/Desktop/dotnetDevHttpsSanyaCert.crt
+sudo update-ca-trust
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# SPOILDER: DID NOT WORK ...
+# ... and now, a week later, the final fix for the proper dotnet-to-dotnet work is the following:
+sudo cp ~/Desktop/dotnetDevHttpsSanyaCert.crt /etc/ssl/certs/dotnetDevHttpsSanyaCert.pem
+
+# ... and just in case:
+sudo update-ca-trust
+
+
+
+
+
+
+
+# Also did not work:
+sudo cp ~/Desktop/dotnetDevHttpsSanyaCert.crt /etc/ca-certificates/trust-source/anchors/dotnetDevHttpsSanyaCert.pem
+sudo cp ~/Desktop/dotnetDevHttpsSanyaCert.crt /etc/ca-certificates/trust-source/anchors/dotnetDevHttpsSanyaCert.crt
+sudo update-ca-trust
+
+
+

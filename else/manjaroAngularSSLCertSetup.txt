@@ -1,0 +1,10 @@
+
+# server.crt file was taken from 
+
+sudo trust anchor --store /home/sanya/DevProjects/dotnet/DatingApp/client/ssl/server.crt
+sudo update-ca-trust
+
+
+
+
+# ... and then continuing with modifying the options in the angular.json file ...

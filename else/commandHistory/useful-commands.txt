@@ -1,0 +1,9 @@
+
+--- run migrations after Entities update:
+
+# stop the server before doing this! then:
+dotnet ef migrations add DescriptionOfMigr
+dotnet ef database update
+
+
+

@@ -1,17 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
 
-        <!-- container-fluid means links and search bar are stretched to the edges, I don't want that, so I removed -fluid part -->
-
         <a class="navbar-brand" href="#">Dating App</a>
 
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-
-        <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
-
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="loggedIn">
             <li class="nav-item">
                 <a class="nav-link" href="#">Matches</a>
             </li>
@@ -21,8 +13,20 @@
             <li class="nav-item">
                 <a class="nav-link">Messages</a>
             </li>
+            <li class="nav-item" (click)="logout()">
+                <a class="nav-link">Logout</a>
+            </li>
         </ul>
-        <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+
+        <div class="dropdown" *ngIf="loggedIn">
+            <a class="dropdown-toggle text-light">Welcome, user!</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item">Edit Profile</a>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div>
+
+        <form *ngIf="!loggedIn" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
             <input
                 name="username"
                 [(ngModel)]="model.username"
@@ -38,6 +42,5 @@
             <button class="btn btn-outline-success" type="submit">Login</button>
         </form>
 
-        <!-- </div> -->
     </div>
 </nav>

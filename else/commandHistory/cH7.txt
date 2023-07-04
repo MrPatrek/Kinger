@@ -162,3 +162,26 @@ CREATE src/app/_services/account.service.ts (136 bytes)
 
 
  
+
+
+
+
+
+
+
+
+
+ # Slightly later:
+ 
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                                                                           ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    ng add ngx-bootstrap  --component dropdowns                                                  ✔ 
+Skipping installation: Package already installed
+Cannot find module '/home/sanya/DevProjects/dotnet/DatingApp/client/node_modules/@schematics/angular/utility/test.js'
+
+# So, the command did not work. That's why we will manually add all necessary imports to the module, as stated in the instructions
+

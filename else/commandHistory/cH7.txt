@@ -185,3 +185,31 @@ Cannot find module '/home/sanya/DevProjects/dotnet/DatingApp/client/node_modules
 
 # So, the command did not work. That's why we will manually add all necessary imports to the module, as stated in the instructions
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                                                                           ✔ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    ng g c home --skip-tests                                                                     ✔ 
+CREATE src/app/home/home.component.css (0 bytes)
+CREATE src/app/home/home.component.html (19 bytes)
+CREATE src/app/home/home.component.ts (267 bytes)
+UPDATE src/app/app.module.ts (979 bytes)
+
+
+

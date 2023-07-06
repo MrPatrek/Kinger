@@ -15,12 +15,14 @@ import { FormsModule } from '@angular/forms';
 
 // My personal import
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { HomeComponent } from './home/home.component';
 // end
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserAnimationsModule,

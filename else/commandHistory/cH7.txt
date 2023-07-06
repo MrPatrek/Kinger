@@ -248,3 +248,79 @@ UPDATE src/app/app.module.ts (1069 bytes)
 
 
 
+
+
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main    cd API                                                                                              ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !5    dotnet ef database drop                                                                      ✔ 
+Build started...
+Build succeeded.
+Are you sure you want to drop the database 'main' on server 'datingapp.db'? (y/N)
+y
+Dropping database 'main' on server 'datingapp.db'.
+Successfully dropped database 'main'.
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !5    dotnet ef database update                                                           1 ✘  3s  
+Build started...
+Build succeeded.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20230626171313_InitialCreate'.
+Applying migration '20230626171313_InitialCreate'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
+          "UserName" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20230626171313_InitialCreate', '7.0.8');
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20230702134312_UserpasswordAdded'.
+Applying migration '20230702134312_UserpasswordAdded'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "PasswordHash" BLOB NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "PasswordSalt" BLOB NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20230702134312_UserpasswordAdded', '7.0.8');
+Done.
+
+
+
+
+

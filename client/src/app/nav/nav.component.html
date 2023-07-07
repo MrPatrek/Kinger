@@ -3,16 +3,18 @@
 
         <a class="navbar-brand" href="#" routerLink="/" routerLinkActive="active">Dating App</a>
 
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/members" routerLinkActive="active">Matches</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
-            </li>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async"> <!-- using async pipe automatically unsubscribes from currentUser$ obserbable -->
+            <ng-container *ngIf="accountService.currentUser$ | async">      <!-- ng-container will not be visible in our HTML, it's not added to our DOM -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/members" routerLinkActive="active">Matches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
+                </li>
+            </ng-container>
         </ul>
 
         <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
@@ -23,18 +25,11 @@
             </div>
         </div>
 
-        <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
-            <input
-                name="username"
-                [(ngModel)]="model.username"
-                class="form-control me-2"
-                type="text"
+        <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()"
+            autocomplete="off">
+            <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text"
                 placeholder="Username">
-            <input
-                name="password"
-                [(ngModel)]="model.password"
-                class="form-control me-2"
-                type="password"
+            <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password"
                 placeholder="Password">
             <button class="btn btn-outline-success" type="submit">Login</button>
         </form>

@@ -212,3 +212,17 @@ CREATE src/app/_guards/auth.guard.ts (457 bytes)
 
 
 
+
+
+
+
+
+
+
+# Later I also run:
+
+npm i bootswatch@5.2.3
+
+
+
+

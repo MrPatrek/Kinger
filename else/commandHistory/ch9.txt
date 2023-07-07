@@ -1,0 +1,141 @@
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                                                                                      ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    npm install ngx-toastr@15.2.2 --save                                                                    ✔ 
+
+added 1 package, removed 1 package, and audited 980 packages in 3s
+
+137 packages are looking for funding
+  run `npm fund` for details
+
+21 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main !2    npm audit                                                                                     ✔  4s  
+# npm audit report
+
+semver  <7.5.2
+Severity: moderate
+semver vulnerable to Regular Expression Denial of Service - https://github.com/advisories/GHSA-c2qf-rxjj-qqgw
+fix available via `npm audit fix --force`
+Will install @angular-devkit/build-angular@0.901.13, which is a breaking change
+node_modules/@babel/core/node_modules/semver
+node_modules/@babel/helper-compilation-targets/node_modules/semver
+node_modules/@babel/helper-create-class-features-plugin/node_modules/semver
+node_modules/@babel/helper-create-regexp-features-plugin/node_modules/semver
+node_modules/@babel/helper-define-polyfill-provider/node_modules/semver
+node_modules/@babel/plugin-transform-runtime/node_modules/semver
+node_modules/@babel/preset-env/node_modules/semver
+node_modules/babel-plugin-polyfill-corejs2/node_modules/semver
+node_modules/istanbul-lib-instrument/node_modules/semver
+node_modules/less/node_modules/semver
+node_modules/make-dir/node_modules/semver
+  @babel/core  <=7.22.5
+  Depends on vulnerable versions of semver
+  node_modules/@babel/core
+    @angular-devkit/build-angular  >=0.803.0-next.0
+    Depends on vulnerable versions of @babel/core
+    Depends on vulnerable versions of @babel/plugin-transform-runtime
+    Depends on vulnerable versions of @babel/preset-env
+    Depends on vulnerable versions of babel-loader
+    Depends on vulnerable versions of babel-plugin-istanbul
+    Depends on vulnerable versions of less
+    node_modules/@angular-devkit/build-angular
+  @babel/helper-compilation-targets  7.8.1 - 7.22.5
+  Depends on vulnerable versions of semver
+  node_modules/@babel/helper-compilation-targets
+  @babel/helper-create-class-features-plugin  7.21.5 - 7.22.5
+  Depends on vulnerable versions of semver
+  node_modules/@babel/helper-create-class-features-plugin
+  @babel/helper-create-regexp-features-plugin  7.21.5 - 7.22.5
+  Depends on vulnerable versions of semver
+  node_modules/@babel/helper-create-regexp-features-plugin
+  @babel/helper-define-polyfill-provider  <=0.4.0
+  Depends on vulnerable versions of semver
+  node_modules/@babel/helper-define-polyfill-provider
+    babel-plugin-polyfill-corejs2  0.0.1 - 0.4.3
+    Depends on vulnerable versions of @babel/helper-define-polyfill-provider
+    Depends on vulnerable versions of semver
+    node_modules/babel-plugin-polyfill-corejs2
+      @babel/plugin-transform-runtime  7.1.0 - 7.22.5
+      Depends on vulnerable versions of babel-plugin-polyfill-corejs2
+      Depends on vulnerable versions of babel-plugin-polyfill-corejs3
+      Depends on vulnerable versions of babel-plugin-polyfill-regenerator
+      Depends on vulnerable versions of semver
+      node_modules/@babel/plugin-transform-runtime
+      @babel/preset-env  <=7.22.5
+      Depends on vulnerable versions of babel-plugin-polyfill-corejs2
+      Depends on vulnerable versions of babel-plugin-polyfill-corejs3
+      Depends on vulnerable versions of babel-plugin-polyfill-regenerator
+      Depends on vulnerable versions of semver
+      node_modules/@babel/preset-env
+    babel-plugin-polyfill-corejs3  0.0.1 - 0.7.1
+    Depends on vulnerable versions of @babel/helper-define-polyfill-provider
+    node_modules/babel-plugin-polyfill-corejs3
+    babel-plugin-polyfill-regenerator  0.0.1 - 0.4.1
+    Depends on vulnerable versions of @babel/helper-define-polyfill-provider
+    node_modules/babel-plugin-polyfill-regenerator
+  istanbul-lib-instrument  >=1.2.0
+  Depends on vulnerable versions of semver
+  node_modules/istanbul-lib-instrument
+    babel-plugin-istanbul  >=3.1.0-candidate.0
+    Depends on vulnerable versions of istanbul-lib-instrument
+    node_modules/babel-plugin-istanbul
+    karma-coverage  >=2.0.0
+    Depends on vulnerable versions of istanbul-lib-instrument
+    Depends on vulnerable versions of istanbul-lib-report
+    Depends on vulnerable versions of istanbul-reports
+    node_modules/karma-coverage
+  make-dir  2.0.0 - 3.1.0
+  Depends on vulnerable versions of semver
+  node_modules/less/node_modules/make-dir
+  node_modules/make-dir
+    babel-loader  8.1.0 - 9.1.2
+    Depends on vulnerable versions of find-cache-dir
+    Depends on vulnerable versions of make-dir
+    node_modules/babel-loader
+    find-cache-dir  2.1.0 - 3.3.2
+    Depends on vulnerable versions of make-dir
+    node_modules/find-cache-dir
+    istanbul-lib-report  >=2.0.5
+    Depends on vulnerable versions of make-dir
+    node_modules/istanbul-lib-report
+      istanbul-reports  >=3.0.0-alpha.0
+      Depends on vulnerable versions of istanbul-lib-report
+      node_modules/istanbul-reports
+    less  >=3.11.2
+    Depends on vulnerable versions of make-dir
+    node_modules/less
+
+21 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+
+

@@ -3,6 +3,7 @@ import { AccountService } from '../_services/account.service';
 import { Observable, of } from 'rxjs';
 import { User } from '../_models/user';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
   model: any = {}
 
-  constructor(public accountService: AccountService, private router: Router) { } // accountService is public because we want it to be accessible from nav.component.html
+  constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) { } // accountService is public because we want it to be accessible from nav.component.html
 
   ngOnInit(): void {
   }
@@ -20,7 +21,7 @@ export class NavComponent implements OnInit {
   login() {
     this.accountService.login(this.model).subscribe({
       next: _ => this.router.navigateByUrl('/members'), // _ is the same as () (for use when we do not have input params)
-      error: error => console.log(error)
+      error: error => this.toastr.error(error.error)
     })
   }
 

@@ -85,3 +85,34 @@ CREATE src/app/_interceptors/error.interceptor.ts (410 bytes)
 
 
 
+
+
+
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                                                                                  ✔ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    ng g c errors/not-found --skip-tests                                                                ✔ 
+CREATE src/app/errors/not-found/not-found.component.css (0 bytes)
+CREATE src/app/errors/not-found/not-found.component.html (24 bytes)
+CREATE src/app/errors/not-found/not-found.component.ts (286 bytes)
+UPDATE src/app/app.module.ts (1933 bytes)
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main !1 ?1    ng g c errors/server-error --skip-tests                                                       ✔ 
+CREATE src/app/errors/server-error/server-error.component.css (0 bytes)
+CREATE src/app/errors/server-error/server-error.component.html (27 bytes)
+CREATE src/app/errors/server-error/server-error.component.ts (298 bytes)
+UPDATE src/app/app.module.ts (2044 bytes)
+
+
+
+

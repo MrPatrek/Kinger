@@ -21,7 +21,8 @@ export class NavComponent implements OnInit {
   login() {
     this.accountService.login(this.model).subscribe({
       next: _ => this.router.navigateByUrl('/members'), // _ is the same as () (for use when we do not have input params)
-      error: error => this.toastr.error(error.error)
+      // Now errors are handled by the interceptors, so that's why we comment out what we have below :
+      // error: error => this.toastr.error(error.error)
     })
   }
 

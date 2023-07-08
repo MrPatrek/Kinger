@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 // My personal import
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // end
 
@@ -22,6 +22,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SharedModule } from './_modules/shared.module';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
 // end
 
 @NgModule({
@@ -44,7 +45,9 @@ import { TestErrorComponent } from './errors/test-error/test-error.component';
     FormsModule,
     SharedModule      // our shared module
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true} // multi:true measns we add our own interceptors, without replacing the provided default ones
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

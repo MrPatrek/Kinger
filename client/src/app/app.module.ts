@@ -50,7 +50,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     SharedModule      // our shared module
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true} // multi:true measns we add our own interceptors, without replacing the provided default ones
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true} // multi:true measns we add our own interceptors, without replacing the provided default ones. That is, we complement the defaults ones
   ],
   bootstrap: [AppComponent]
 })

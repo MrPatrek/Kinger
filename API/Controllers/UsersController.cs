@@ -1,5 +1,6 @@
 using API.Data;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,26 +14,25 @@ namespace API.Controllers
     [Authorize]
     public class UsersController : BaseApiController
     {
-        private readonly DataContext _context;
+        private readonly IUserRepository _userRepository;
 
-        public UsersController(DataContext context)
+        public UsersController(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
+
         }
 
         // [AllowAnonymous]
         [HttpGet]                   // GET method               // link: /api/users
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()            // if we do not return ActionResult, then we cannot return e.g. Bad Page error (404), etc. (but we still can return users)
         {
-            var users = await _context.Users.ToListAsync();
-
-            return users;
+            return Ok(await _userRepository.GetUsersAsync());
         }
 
-        [HttpGet("{id}")]                                       //  link: /api/users/3 (example)
-        public async Task<ActionResult<AppUser>> GetUser(int id)
+        [HttpGet("{username}")]                                       //  link: /api/users/3 (example)
+        public async Task<ActionResult<AppUser>> GetUser(string username)
         {
-            return await _context.Users.FindAsync(id);
+            return await _userRepository.GetUserByUsernameAsync(username);
         }
 
 

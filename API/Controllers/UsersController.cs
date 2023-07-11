@@ -20,7 +20,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
+        // [AllowAnonymous]
         [HttpGet]                   // GET method               // link: /api/users
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()            // if we do not return ActionResult, then we cannot return e.g. Bad Page error (404), etc. (but we still can return users)
         {

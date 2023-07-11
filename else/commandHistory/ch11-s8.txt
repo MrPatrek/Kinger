@@ -1,0 +1,140 @@
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    cd API                                                                                                     ✔ 
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !1    dotnet ef migrations add ExtendedUserEntity                                                         ✔ 
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+
+
+
+
+
+
+
+# After manual new migration investigation, I did not achieve what was desidred, so:
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !2 ?2    dotnet ef migrations remove                                                               ✔  5s  
+Build started...
+Build succeeded.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+Removing migration '20230711123615_ExtendedUserEntity'.
+Reverting the model snapshot.
+Done.
+
+
+
+
+
+
+# Then, after fixing the Entity:
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !1    dotnet ef migrations add ExtendedUserEntity                                                  ✔  4s  
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+
+
+
+
+# Migrations are OK now, so we DO update database now:
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/API    main !2 ?2    dotnet ef database update                                                                 ✔  5s  
+Build started...
+Build succeeded.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20230711130203_ExtendedUserEntity'.
+Applying migration '20230711130203_ExtendedUserEntity'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "City" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "Country" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "Created" TEXT NOT NULL DEFAULT '0001-01-01 00:00:00';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "DateOfBirth" TEXT NOT NULL DEFAULT '0001-01-01';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "Gender" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "Interests" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "Introduction" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "KnownAs" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "LastActive" TEXT NOT NULL DEFAULT '0001-01-01 00:00:00';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Users" ADD "LookingFor" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Photos" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Photos" PRIMARY KEY AUTOINCREMENT,
+          "Url" TEXT NULL,
+          "IsMain" INTEGER NOT NULL,
+          "PublicId" TEXT NULL,
+          "AppUserId" INTEGER NOT NULL,
+          CONSTRAINT "FK_Photos_Users_AppUserId" FOREIGN KEY ("AppUserId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Photos_AppUserId" ON "Photos" ("AppUserId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20230711130203_ExtendedUserEntity', '7.0.8');
+Done.
+
+
+
+
+
+
+

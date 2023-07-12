@@ -1,5 +1,8 @@
+using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
@@ -7,10 +10,27 @@ namespace API.Data
     public class UserRepository : IUserRepository
     {
         private readonly DataContext _context;
-        public UserRepository(DataContext context)
+        private readonly IMapper _mapper;
+        public UserRepository(DataContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
             
+        }
+
+        public async Task<MemberDto> GetMemberAsync(string username)
+        {
+            return await _context.Users
+                .Where(x => x.UserName == username)
+                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
+                .SingleOrDefaultAsync();                                // keep in mind that here we don't excplicitly Include Photos (as we have below), as this is already taken care by the projection applied in this method
+        }
+
+        public async Task<IEnumerable<MemberDto>> GetMembersAsync()
+        {
+            return await _context.Users
+                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
+                .ToListAsync();                                         // read comment above
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)

@@ -30,19 +30,15 @@ namespace API.Controllers
         [HttpGet]                   // GET method               // link: /api/users
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()            // if we do not return ActionResult, then we cannot return e.g. Bad Page error (404), etc. (but we still can return users)
         {
-            var users = await _userRepository.GetUsersAsync();
+            var users = await _userRepository.GetMembersAsync();
 
-            var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
-
-            return Ok(usersToReturn);
+            return Ok(users);
         }
 
         [HttpGet("{username}")]                                       //  link: /api/users/3 (example)
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(username);
-
-            return _mapper.Map<MemberDto>(user);
+            return await _userRepository.GetMemberAsync(username);
         }
 
 

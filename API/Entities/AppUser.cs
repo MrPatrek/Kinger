@@ -20,9 +20,10 @@ namespace API.Entities
         public string Country { get; set; }
         public List<Photo> Photos { get; set; } = new();        // "new()" is the same as "new List<Photo>()"
 
-        public int GetAge()         // "Get" prefix is important for AutoMapper! Because it will automatcally calculate our int "Age" (GetAge calculates Age) ...
-        {
-            return DateOfBirth.CalculateAge();
-        }
+        // We commented this out because in order to use it, we need to create whole object with all properties, which we don't always need (optimization), so we used a different approach for this one ...
+        // public int GetAge()         // "Get" prefix is important for AutoMapper! Because it will automatcally calculate our int "Age" (GetAge calculates Age) ...
+        // {
+        //     return DateOfBirth.CalculateAge();
+        // }
     }
 }

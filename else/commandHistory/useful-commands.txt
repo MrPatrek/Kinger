@@ -7,3 +7,31 @@ dotnet ef database update
 
 
 
+
+
+
+
+
+
+
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    cd client                                                                                               ✔ 
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main ?2    ng g interceptor _interceptors/jwt --skip-tests --dry-run                                        ✔ 
+CREATE src/app/_interceptors/jwt.interceptor.ts (408 bytes)
+
+NOTE: The "--dry-run" option means no changes were made.
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main ?2    ng g interceptor _interceptors/jwt --skip-tests                                                  ✔ 
+CREATE src/app/_interceptors/jwt.interceptor.ts (408 bytes)
+
+
+
+

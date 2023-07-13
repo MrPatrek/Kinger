@@ -26,6 +26,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 // end
 
 @NgModule({
@@ -52,7 +53,8 @@ import { MemberCardComponent } from './members/member-card/member-card.component
     SharedModule      // our shared module
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true} // multi:true measns we add our own interceptors, without replacing the provided default ones. That is, we complement the defaults ones
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}, // multi:true measns we add our own interceptors, without replacing the provided default ones. That is, we complement the defaults ones
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

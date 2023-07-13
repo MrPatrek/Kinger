@@ -1,0 +1,15 @@
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main !3    cd client                                                                                               ✔ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main !3    ng g s _services/members --skip-tests                                                            ✔ 
+CREATE src/app/_services/members.service.ts (136 bytes)
+
+
+
+

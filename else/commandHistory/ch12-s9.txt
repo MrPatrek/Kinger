@@ -13,3 +13,22 @@ CREATE src/app/_services/members.service.ts (136 bytes)
 
 
 
+
+
+# Later
+
+
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                   ✔ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    ng g c members/member-card --skip-tests        ✔ 
+CREATE src/app/members/member-card/member-card.component.css (0 bytes)
+CREATE src/app/members/member-card/member-card.component.html (26 bytes)
+CREATE src/app/members/member-card/member-card.component.ts (294 bytes)
+UPDATE src/app/app.module.ts (2194 bytes)
+
+
+
+

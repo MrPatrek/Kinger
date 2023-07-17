@@ -1,0 +1,13 @@
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    cd client                                                                                               ✔ 
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main ?2    ng g c members/member-edit --skip-tests                                                          ✔ 
+CREATE src/app/members/member-edit/member-edit.component.css (0 bytes)
+CREATE src/app/members/member-edit/member-edit.component.html (26 bytes)
+CREATE src/app/members/member-edit/member-edit.component.ts (294 bytes)
+UPDATE src/app/app.module.ts (2441 bytes)
+
+

@@ -40,9 +40,12 @@ export class MemberEditComponent implements OnInit {
   }
 
   updateMember() {
-    console.log(this.member);
-    this.toastr.success('Profile updated successfully');
-    this.editForm?.reset(this.member);    // since we have two-way binding, which is [()] used in the template, then this is possible. Keep in mind that this still does not save changes to the DB, it just resets the initial form data in your browser ...
+    this.memberService.updateMember(this.editForm?.value).subscribe({         // we still need to subscribe to the observable, even though we do not store the returned value in some variable (actually we just don't need it in this case (which is nothing anyway, since we get no content response back from the API, which is still a successful request))
+      next: _ => {
+        this.toastr.success('Profile updated successfully');
+        this.editForm?.reset(this.member);    // since we have two-way binding, which is [()] used in the template, then this is possible. Keep in mind that this still does not save changes to the DB, it just resets the initial form data in your browser ...
+      }
+    });
   }
 
 }

@@ -3,7 +3,7 @@
         <h1>Your profile</h1>
     </div>
     <div class="col-8">
-        <div class="alert alert-info">
+        <div class="alert alert-info" *ngIf="editForm.dirty">           <!-- dirty returns a boolean which indicates if some changes were made in the form -->
             <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
         </div>
     </div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-success col-12">Save changes</button>
+                <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success col-12">Save changes</button>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
     <div class="col-8">
         <tabset class="member-tabset">
             <tab heading="About {{member.knownAs}}">
-                <form>
+                <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">         <!-- here id is important for the button above -->
                     <h4 class="mt-2">Description</h4>
                     <textarea class="form-control"
                         [(ngModel)]="member.introduction"
@@ -48,9 +48,9 @@
                     <h4 class="mt-2">Looking for</h4>
                     <textarea class="form-control"
                         [(ngModel)]="member.lookingFor"
-                        name="lookingFor" 
+                        name="lookingFor"
                         rows="6"
-                    ></textarea>
+                    ></textarea>                                        <!-- just a reminder that the "name" property is important as well, needs to be the same as in "ngModel" property, etc. (for example, when resetting the form as in this example in .ts component) -->
                     <h4 class="mt-2">Interests</h4>
                     <textarea class="form-control"
                         [(ngModel)]="member.interests"

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
@@ -14,6 +14,11 @@ import { MembersService } from 'src/app/_services/members.service';
 })
 export class MemberEditComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm | undefined;
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {         // if we insert smth to the browser address bar and proceed when having made some changes in the form, we will still be asked a confirmation if we want to proceed
+    if (this.editForm?.dirty) {
+      $event.returnValue = true;
+    }
+  }
   member: Member | undefined;
   user: User | null = null;
 

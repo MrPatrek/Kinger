@@ -70,3 +70,140 @@ CREATE src/app/_guards/prevent-unsaved-changes.guard.ts (564 bytes)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# Later
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                                                                                  ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    ng add ngx-spinner                                                                                  ✔ 
+ℹ Using package manager: npm
+✔ Found compatible package version: ngx-spinner@0.0.0.
+✔ Package information loaded.
+
+The package ngx-spinner@0.0.0 will be installed and executed.
+Would you like to proceed? No
+Command aborted.
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    npm install ngx-spinner --save                                                            1 ✘  14s  
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR! 
+npm ERR! While resolving: client@0.0.0
+npm ERR! Found: @angular/animations@14.3.0
+npm ERR! node_modules/@angular/animations
+npm ERR!   @angular/animations@"^14.2.0" from the root project
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/animations@">=15.0.0" from ngx-spinner@16.0.2
+npm ERR! node_modules/ngx-spinner
+npm ERR!   ngx-spinner@"*" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! See /home/sanya/.npm/eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/sanya/.npm/_logs/2023-07-18T12_49_33_257Z-debug-0.log
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    npm i ngx-spinner@14.0.0                                                                          1 ✘ 
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: @kolkov/ngx-gallery@2.0.1
+npm ERR! Found: @angular/animations@14.3.0
+npm ERR! node_modules/@angular/animations
+npm ERR!   peerOptional @angular/animations@"14.3.0" from @angular/platform-browser@14.3.0
+npm ERR!   node_modules/@angular/platform-browser
+npm ERR!     peer @angular/platform-browser@"14.3.0" from @angular/forms@14.3.0
+npm ERR!     node_modules/@angular/forms
+npm ERR!       peer @angular/forms@"^14.0.0" from ngx-bootstrap@9.0.0
+npm ERR!       node_modules/ngx-bootstrap
+npm ERR!         ngx-bootstrap@"^9.0.0" from the root project
+npm ERR!       1 more (the root project)
+npm ERR!     peer @angular/platform-browser@"14.3.0" from @angular/platform-browser-dynamic@14.3.0
+npm ERR!     node_modules/@angular/platform-browser-dynamic
+npm ERR!       @angular/platform-browser-dynamic@"^14.2.0" from the root project
+npm ERR!     3 more (@angular/router, ngx-toastr, the root project)
+npm ERR!   peer @angular/animations@"^14.0.0" from ngx-bootstrap@9.0.0
+npm ERR!   node_modules/ngx-bootstrap
+npm ERR!     ngx-bootstrap@"^9.0.0" from the root project
+npm ERR!   1 more (the root project)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/animations@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm ERR! node_modules/@kolkov/ngx-gallery
+npm ERR!   @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: @angular/animations@13.4.0
+npm ERR! node_modules/@angular/animations
+npm ERR!   peer @angular/animations@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm ERR!   node_modules/@kolkov/ngx-gallery
+npm ERR!     @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! See /home/sanya/.npm/eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/sanya/.npm/_logs/2023-07-18T12_53_21_763Z-debug-0.log
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    npm i ngx-spinner@14.0.0 --legacy-peer-deps                                                       1 ✘ 
+
+added 1 package, removed 1 package, and audited 982 packages in 2s
+
+136 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main !2    ng g s _services/busy --skip-tests                                                               ✔ 
+CREATE src/app/_services/busy.service.ts (133 bytes)
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main !4 ?1    ng g interceptor _interceptors/loading --skip-tests                                           ✔ 
+CREATE src/app/_interceptors/loading.interceptor.ts (412 bytes)
+
+
+
+

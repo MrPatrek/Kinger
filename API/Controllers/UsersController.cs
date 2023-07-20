@@ -1,5 +1,7 @@
 using System.Security.Claims;
 using API.DTOs;
+using API.Entities;
+using API.Extensions;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -16,9 +18,11 @@ namespace API.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IPhotoService _photoService;
 
-        public UsersController(IUserRepository userRepository, IMapper mapper)
+        public UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService)
         {
+            _photoService = photoService;
             _mapper = mapper;
             _userRepository = userRepository;
 
@@ -41,12 +45,8 @@ namespace API.Controllers
 
         [HttpPut]
         public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
-        {
-            // Keep in mind the "User" below comes not from your code, but from the System (ControllerBase) ! ! !
-            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;        // similar to NameId in the TokenService
-            // don't forget that we already automatically in the background recieve a token back from the API, so from this recieved token we can actually understand if it is the actual user who he/she claims to be
-            
-            var user = await _userRepository.GetUserByUsernameAsync(username);      // from this point on, we track what's happening to the var "user"
+        {            
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());      // from this point on, we track what's happening to the var "user"
             
             if (user == null) return NotFound();
 
@@ -56,6 +56,32 @@ namespace API.Controllers
             if (await _userRepository.SaveAllAsync()) return NoContent();      // because we have nothing to return, it's just to update data in the DB
 
             return BadRequest("Failed to update user");             // e.g., if NO changes were actually made (that is, updateDto props are the same as the ones stored in the DB)
+        }
+
+        [HttpPost("add-photo")]
+        public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
+            if (user == null) return NotFound();
+
+            var result = await _photoService.AddPhotoAsync(file);
+
+            if (result.Error != null) return BadRequest(result.Error.Message);
+
+            var photo = new Photo
+            {
+                Url = result.SecureUrl.AbsoluteUri,
+                PublicId = result.PublicId
+            };
+
+            if (user.Photos.Count == 0) photo.IsMain = true;
+
+            user.Photos.Add(photo);
+
+            if (await _userRepository.SaveAllAsync()) return _mapper.Map<PhotoDto>(photo);
+
+            return BadRequest("Problem adding photo");
         }
 
     }

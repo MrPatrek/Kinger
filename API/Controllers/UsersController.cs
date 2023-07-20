@@ -34,7 +34,7 @@ namespace API.Controllers
         {
             var users = await _userRepository.GetMembersAsync();
 
-            return Ok(users);
+            return Ok(users);               // return 200 OK reponse
         }
 
         [HttpGet("{username}")]                                       //  link: /api/users/3 (example)
@@ -53,7 +53,8 @@ namespace API.Controllers
             _mapper.Map(memberUpdateDto, user);         // do update the user
 
             // save changes to the DB
-            if (await _userRepository.SaveAllAsync()) return NoContent();      // because we have nothing to return, it's just to update data in the DB
+            if (await _userRepository.SaveAllAsync()) return NoContent();       // return 204 No Content (it is just an update)
+                                                                                // because we have nothing to return, it's just to update data in the DB
 
             return BadRequest("Failed to update user");             // e.g., if NO changes were actually made (that is, updateDto props are the same as the ones stored in the DB)
         }
@@ -79,7 +80,15 @@ namespace API.Controllers
 
             user.Photos.Add(photo);
 
-            if (await _userRepository.SaveAllAsync()) return _mapper.Map<PhotoDto>(photo);
+            if (await _userRepository.SaveAllAsync())
+            {
+                return CreatedAtAction(nameof(GetUser), new {username = user.UserName}, _mapper.Map<PhotoDto>(photo));
+                // return 201 Created Reponse (along with location details about where to find the newly created resource; but we also send back the newly created resource as well)
+                // so basically this will return the PhotoDto object ...
+                // ... AS WELL AS "Location" Header containing link similar to "https://localhost:5001/api/Users/lisa" (a combination of first two params of the return CreatedAtAction())
+                
+                // now this follows REST principles
+            }
 
             return BadRequest("Problem adding photo");
         }

@@ -41,6 +41,10 @@ export class MembersService {
   }
 
   setMainPhoto(photoId: number) {
-    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});         // the last param (body) is empty, we do not pass anything except for the photoId param in the url itself
+  }
+
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
 }

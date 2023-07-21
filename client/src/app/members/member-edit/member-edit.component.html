@@ -67,7 +67,8 @@
                 </form>
             </tab>
             <tab heading="Edit Photos">
-                <p>Photo edit will go here</p>
+                <app-photo-editor [member]="member"></app-photo-editor>
+                <!-- We send our "member" variable to the [member] of our child component "app-photo-editor" (where it is denoted as "@Input() member") -->
             </tab>
         </tabset>
     </div>

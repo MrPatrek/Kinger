@@ -1,0 +1,16 @@
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main ?2    cd client                                                                                             ✔ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main ?2    ng g c members/photo-editor --skip-tests                                                       ✔ 
+CREATE src/app/members/photo-editor/photo-editor.component.css (0 bytes)
+CREATE src/app/members/photo-editor/photo-editor.component.html (27 bytes)
+CREATE src/app/members/photo-editor/photo-editor.component.ts (298 bytes)
+UPDATE src/app/app.module.ts (2704 bytes)
+
+
+

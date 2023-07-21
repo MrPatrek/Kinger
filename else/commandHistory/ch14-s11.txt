@@ -14,3 +14,53 @@ UPDATE src/app/app.module.ts (2704 bytes)
 
 
 
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main    cd client                                                                                                ✔ 
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    npm i ng2-file-upload@2.0.0-3                                                                     ✔ 
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR! 
+npm ERR! While resolving: client@0.0.0
+npm ERR! Found: @angular/common@14.3.0
+npm ERR! node_modules/@angular/common
+npm ERR!   @angular/common@"^14.2.0" from the root project
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/common@"^11.0.0 || ^12.0.0" from ng2-file-upload@2.0.0-3
+npm ERR! node_modules/ng2-file-upload
+npm ERR!   ng2-file-upload@"2.0.0-3" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! See /home/sanya/.npm/eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/sanya/.npm/_logs/2023-07-21T14_13_45_158Z-debug-0.log
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp/client    main    npm i ng2-file-upload@2.0.0-3 --legacy-peer-deps                                                1 ✘ 
+
+added 1 package, removed 1 package, and audited 983 packages in 2s
+
+136 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+
+

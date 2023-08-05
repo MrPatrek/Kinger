@@ -1,0 +1,65 @@
+
+
+
+# First, remove old certificate:
+
+sudo trust anchor --remove ~/DevProjects/dotnet/DatingApp/client/ssl/server.crt
+sudo update-ca-trust
+
+
+
+
+
+# Remove old "ssl" folder in client folder (which includes old server .crt and .key files)
+
+
+
+
+# Remove old "OPTIONS" inside SERVE in the angular.json file:
+
+# ... ... ...
+#
+# "serve": {
+#          "options": {
+#            "sslCert": "./ssl/server.crt",
+#            "sslKey": "./ssl/server.key",
+#            "ssl": true
+#          },
+#
+# ... ... ...
+
+
+
+
+
+
+
+
+# Then, install new certificate (using better way now, i.e. using "mkcert" utility - https://github.com/FiloSottile/mkcert):
+
+cd client
+mkdir ssl
+cd ssl
+
+mkcert -install
+mkcert localhost
+
+
+
+
+
+# And add new options instead of ones probided above:
+
+# ... ... ...
+#
+#        "serve": {
+#          "options": {
+#            "ssl": true,
+#            "sslCert": "./ssl/localhost.pem",
+#            "sslKey": "./ssl/localhost-key.pem"
+#          },
+#
+# ... ... ...
+
+
+

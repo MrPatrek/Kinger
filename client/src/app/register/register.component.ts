@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -23,8 +23,21 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       username: new FormControl('Hello', Validators.required),
       password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
-      confirmPassword: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', [Validators.required, this.matchValues('password')]),
+    });
+
+    // Below we track the password field.
+    // If not this, then, after filling both password and confirmPassword fields, and then changing initial password, the confirmPassword will not run validation.
+    // That's why we need to manually run validation for confirmPassword after some change was made to initial password.
+    this.registerForm.controls['password'].valueChanges.subscribe({
+      next: () => this.registerForm.controls['confirmPassword'].updateValueAndValidity()
     })
+  }
+
+  matchValues(matchTo: string): ValidatorFn {
+    return (control: AbstractControl) => {
+      return control.value === control.parent?.get(matchTo)?.value ? null : {notMatching: true}
+    }
   }
 
   register() {

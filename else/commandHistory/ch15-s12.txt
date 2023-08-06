@@ -1,0 +1,11 @@
+
+
+    ~/DevProjects/dotnet/DatingApp    main  cd client                                                                                       ✔ 
+
+    ~/DevProjects/dotnet/DatingApp/client    main  ng g c _forms/text-input --skip-tests                                                    ✔ 
+CREATE src/app/_forms/text-input/text-input.component.css (0 bytes)
+CREATE src/app/_forms/text-input/text-input.component.html (25 bytes)
+CREATE src/app/_forms/text-input/text-input.component.ts (290 bytes)
+UPDATE src/app/app.module.ts (2853 bytes)
+
+    ~/DevProjects/dotnet/DatingApp/client    main !1 ?1           

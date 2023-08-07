@@ -9,3 +9,14 @@ CREATE src/app/_forms/text-input/text-input.component.ts (290 bytes)
 UPDATE src/app/app.module.ts (2853 bytes)
 
     ~/DevProjects/dotnet/DatingApp/client    main !1 ?1           
+
+
+
+
+
+
+ # Later
+
+cd client
+ng g c _forms/date-picker --skip-tests
+

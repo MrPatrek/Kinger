@@ -81,6 +81,15 @@ export class PhotoEditorComponent implements OnInit {
       if (response) {
         const photo = JSON.parse(response);
         this.member?.photos.push(photo);
+
+        // This test will be passed only by the very-first uploaded photo by a user:
+        // (photo.isMain is only true when the very-first photo is uploaded to the API)
+        // We need this so that we can "refresh" our icons on the client (from default empty to the one that the user has uploaded)
+        if (photo.isMain && this.user && this.member) {
+          this.user.photoUrl = photo.url;
+          this.member.photoUrl = photo.url;
+          this.accountService.setCurrentUser(this.user);
+        }
       }
     }
   }

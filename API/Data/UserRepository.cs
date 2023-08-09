@@ -1,5 +1,6 @@
 using API.DTOs;
 using API.Entities;
+using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -26,11 +27,13 @@ namespace API.Data
                 .SingleOrDefaultAsync();                                // keep in mind that here we don't excplicitly Include Photos (as we have below), as this is already taken care by the projection applied in this method
         }
 
-        public async Task<IEnumerable<MemberDto>> GetMembersAsync()
+        public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
-            return await _context.Users
-                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-                .ToListAsync();                                         // read comment above
+            var query = _context.Users
+                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)                // read comment above
+                .AsNoTracking();            // to be more efficient
+
+            return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)

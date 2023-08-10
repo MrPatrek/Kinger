@@ -36,7 +36,7 @@ namespace API.Data
             query = query.Where(u => u.Gender == userParams.Gender);
 
             var minDob = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MaxAge - 1));        // by using "-" we actually "subtract" Years rather than "add"
-                                                                                                        // -1 to be accurate (make sure yourself on some example)
+                                                                                                        // -1 to be accurate (make sure yourself on some example), e.g. if maxAge=27, then we also want someone who's 27.5 or 27.8 years old ...
             var maxDob = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MinAge));
 
             query = query.Where(u => u.DateOfBirth >= minDob && u.DateOfBirth <= maxDob);

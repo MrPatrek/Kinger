@@ -480,7 +480,13 @@ $RECYCLE.BIN/
 
 
 
+
+
+
 # My personal stuff (we don't want to expose our private keys for real deployment, etc.):
 API/appsettings.json
 
 
+# I don't want to stop my API each time I make a commit (so that SQLite DB can delete its temp files), so:
+*.db-shm
+*.db-wal

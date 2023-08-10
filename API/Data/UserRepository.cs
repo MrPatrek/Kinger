@@ -23,17 +23,23 @@ namespace API.Data
         {
             return await _context.Users
                 .Where(x => x.UserName == username)
-                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-                .SingleOrDefaultAsync();                                // keep in mind that here we don't excplicitly Include Photos (as we have below), as this is already taken care by the projection applied in this method
+                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)                    // keep in mind that here we don't excplicitly Include Photos (as we have below), as this is already taken care by the projection applied in this method
+                .SingleOrDefaultAsync();                                
         }
 
         public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
-            var query = _context.Users
-                .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)                // read comment above
-                .AsNoTracking();            // to be more efficient
+            // also read the comment above regarding Photos
+            var query = _context.Users.AsQueryable();
 
-            return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
+            query = query.Where(u => u.UserName != userParams.CurrentUsername);
+            query = query.Where(u => u.Gender == userParams.Gender);
+
+            return await PagedList<MemberDto>.CreateAsync(
+                query.AsNoTracking().ProjectTo<MemberDto>(_mapper.ConfigurationProvider),       // AsNoTracking() is appended to be more efficient
+                userParams.PageNumber,
+                userParams.PageSize
+                );
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)

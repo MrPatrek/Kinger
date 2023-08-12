@@ -57,18 +57,14 @@ export class MembersService {
     );
   }
 
-  private getPaginationHeaders(pageNumber: number, pageSize: number) {
-    let params = new HttpParams();
-
-    params = params.append('pageNumber', pageNumber);
-    params = params.append('pageSize', pageSize);
-
-    return params;
-  }
-
   getMember(username: string) {
-    const member = this.members.find(x => x.userName === username);
+    const member = [...this.memberCache.values()]
+      .reduce((arr, elem) => arr.concat(elem.result), [])             // https://www.google.com/search?q=reduce+function+typescript (or javascript), e.g.: https://stackoverflow.com/questions/14087489/typescript-and-array-reduce-function
+      .find((member: Member) => member.userName === username);        // returns the FIRST (!) element that matches the condition
+      // memberCache may have duplicates (or triplicates, etc.) of the same user, but this is not as bad as calling an API method each time, and at the same time it is not worth finding these duplicates every time (in this particular example)
+
     if (member) return of(member);
+    
     return this.http.get<Member>(this.baseUrl + 'users/' + username)
   }
 
@@ -87,5 +83,14 @@ export class MembersService {
 
   deletePhoto(photoId: number) {
     return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
+  }
+
+  private getPaginationHeaders(pageNumber: number, pageSize: number) {
+    let params = new HttpParams();
+
+    params = params.append('pageNumber', pageNumber);
+    params = params.append('pageSize', pageSize);
+
+    return params;
   }
 }

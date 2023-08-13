@@ -1,0 +1,5 @@
+    ~/DevProjects/dotnet/DatingApp    main !4 ?1  cd API                                                           ✔ 
+    ~/Dev/dotnet/DatingApp/API    main !4 ?1  dotnet ef migrations add LikeEntityAdded                             ✔ 
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'

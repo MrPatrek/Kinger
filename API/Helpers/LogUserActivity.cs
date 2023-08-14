@@ -18,7 +18,7 @@ namespace API.Helpers
             var userId = resultContext.HttpContext.User.GetUserId();
 
             var repo = resultContext.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
-            var user = await repo.GetUserByIdAsync(int.Parse(userId));          // it is more optimal (efficient) to update user via userId and NOT userName because retrieving username also retrieves Photos, which makes our request a bit heavy, considering the fact that each such request will be executed each time we do smth in the client
+            var user = await repo.GetUserByIdAsync(userId);          // it is more optimal (efficient) to update user via userId and NOT userName because retrieving username also retrieves Photos, which makes our request a bit heavy, considering the fact that each such request will be executed each time we do smth in the client
             user.LastActive = DateTime.UtcNow;
             await repo.SaveAllAsync();
         }

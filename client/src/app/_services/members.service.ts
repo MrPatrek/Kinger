@@ -118,8 +118,15 @@ export class MembersService {
     return this.http.post(this.baseUrl + 'likes/' + username, {});
   }
 
-  getLikes(predicate: string) {
-    return this.http.get<Member[]>(this.baseUrl + 'likes?predicate=' + predicate);      // here we can allow ourselves to put "predicate" variable explicitly since we have only one variable in the request
+  getLikes(predicate: string, pageNumber: number, pageSize: number) {
+    let params = this.getPaginationHeaders(pageNumber, pageSize);
+
+    params = params.append('predicate', predicate);
+
+    // this was before:
+    // return this.http.get<Member[]>(this.baseUrl + 'likes?predicate=' + predicate);      // here we can allow ourselves to put "predicate" variable explicitly since we have only one variable in the request
+    // now it is:
+    return this.getPaginatedResult<Member[]>(this.baseUrl + 'likes', params);
   }
 
   private getPaginationHeaders(pageNumber: number, pageSize: number) {

@@ -114,6 +114,14 @@ export class MembersService {
     return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
 
+  addLike(username: string) {
+    return this.http.post(this.baseUrl + 'likes/' + username, {});
+  }
+
+  getLikes(predicate: string) {
+    return this.http.get(this.baseUrl + 'likes?predicate=' + predicate);      // here we can allow ourselves to put "predicate" variable explicitly since we have only one variable in the request
+  }
+
   private getPaginationHeaders(pageNumber: number, pageSize: number) {
     let params = new HttpParams();
 

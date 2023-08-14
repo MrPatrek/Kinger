@@ -50,7 +50,7 @@ namespace API.Data
         public async Task<AppUser> GetUserWithLikes(int userId)
         {
             return await _context.Users
-                .Include(x => x.LikedUsers)
+                .Include(x => x.LikedUsers)                     // don't forget that other entities are not included by default unless it is explicitly stated, that's why we have this method here
                 .FirstOrDefaultAsync(x => x.Id == userId);
         }
     }

@@ -4,6 +4,7 @@ using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
@@ -49,9 +50,33 @@ namespace API.Data
             return await PagedList<MessageDto>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);
         }
 
-        public Task<IEnumerable<MessageDto>> GetMessageThread(int currentUserId, int recipientId)
+        public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName)
         {
-            throw new NotImplementedException();
+            var messages = await _context.Messages
+                .Include(u => u.Sender).ThenInclude(p => p.Photos)              // ThenInclude() means we Include(), but not from Messages, but from the Sender, which is AppUser
+                .Include(u => u.Recipient).ThenInclude(p => p.Photos)           // same
+                .Where(m =>
+                    m.RecipientUsername == currentUserName && m.SenderUsername == recipientUserName
+                    ||
+                    m.RecipientUsername == recipientUserName && m.SenderUsername == currentUserName
+                ).OrderByDescending(m => m.MessageSent)
+                .ToListAsync();     // the query is performed here
+            
+            var unreadMessages = messages
+                .Where(m => m.DateRead == null && m.RecipientUsername == currentUserName)
+                .ToList();        // messages are already in the memory, so no additional query to the DB is performed here
+            
+            if (unreadMessages.Any())
+            {
+                foreach (var message in unreadMessages)
+                {
+                    message.DateRead = DateTime.UtcNow;
+                }
+
+                await _context.SaveChangesAsync();
+            }
+
+            return _mapper.Map<IEnumerable<MessageDto>>(messages);
         }
 
         public async Task<bool> SaveAllAsync()

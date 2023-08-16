@@ -27,5 +27,9 @@ namespace API.Entities
         // Many-to-Many relationship
         public List<UserLike> LikedByUsers { get; set; }        // users who liked this user
         public List<UserLike> LikedUsers { get; set; }          // whom this user likes
+
+        // Many-to-Many relationship
+        public List<Message> MessagesSent { get; set; }
+        public List<Message> MessagesReceived { get; set; }
     }
 }

@@ -1,0 +1,6 @@
+    ~/Dev/dotnet/DatingApp    main !2 ?1  cd API                                                                 1 ✘ 
+    ~/Dev/dotnet/DatingApp/API    main !2 ?1  dotnet ef migrations add MessageEntityAdded                          ✔ 
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+    ~/Dev/d/DatingApp/API    main !3 ?3        

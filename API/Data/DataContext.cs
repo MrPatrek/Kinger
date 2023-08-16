@@ -11,6 +11,7 @@ namespace API.Data
 
         public DbSet<AppUser> Users { get; set; }
         public DbSet<UserLike> Likes { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         // for Likes Many-to-Many relationship to work:
         protected override void OnModelCreating(ModelBuilder builder)
@@ -32,7 +33,15 @@ namespace API.Data
                 .HasForeignKey(s => s.TargetUserId)
                 .OnDelete(DeleteBehavior.Cascade);          // if we had used SQL Server and not SQLite/PostgreSQL (Postgres later on when publishing), then "Cascade" should have been replaced by "NoAction" (could also be done in the statement above rather that this one). Again, this is only applied in case we use SQL Server, and nothing else apart from it.
             
-
+            builder.Entity<Message>()
+                .HasOne(u => u.Recipient)
+                .WithMany(m => m.MessagesReceived)
+                .OnDelete(DeleteBehavior.Restrict);         // if user deletes his account, his message should NOT be deleted
+            
+            builder.Entity<Message>()
+                .HasOne(u => u.Sender)
+                .WithMany(m => m.MessagesSent)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

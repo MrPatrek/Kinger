@@ -14,3 +14,22 @@ Done. To undo this action, use 'ef migrations remove'
     ~/Dev/dotnet/DatingApp/client    main !1 ?1  ng g s _services/message --skip-tests                             ✔ 
 CREATE src/app/_services/message.service.ts (136 bytes)
     ~/Dev/d/DatingApp/client    main !1 ?2         
+
+
+
+
+
+
+
+     ~/DevProjects/dotnet/DatingApp    main !2  cd client                                                           ✔ 
+    ~/Dev/dotnet/DatingApp/client    main !2  ng g c members/member-messages --skip-tests                          ✔ 
+CREATE src/app/members/member-messages/member-messages.component.css (0 bytes)
+CREATE src/app/members/member-messages/member-messages.component.html (30 bytes)
+CREATE src/app/members/member-messages/member-messages.component.ts (310 bytes)
+UPDATE src/app/app.module.ts (3084 bytes)
+    ~/Dev/dotnet/DatingApp/client    main !3 ?1         
+
+
+
+
+

@@ -4,3 +4,13 @@ Build started...
 Build succeeded.
 Done. To undo this action, use 'ef migrations remove'
     ~/Dev/d/DatingApp/API    main !3 ?3        
+
+
+
+
+
+
+     ~/DevProjects/dotnet/DatingApp    main !1 ?1  cd client                                    ✔ 
+    ~/Dev/dotnet/DatingApp/client    main !1 ?1  ng g s _services/message --skip-tests                             ✔ 
+CREATE src/app/_services/message.service.ts (136 bytes)
+    ~/Dev/d/DatingApp/client    main !1 ?2         

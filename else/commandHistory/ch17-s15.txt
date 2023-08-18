@@ -33,3 +33,52 @@ UPDATE src/app/app.module.ts (3084 bytes)
 
 
 
+
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp    main !5  cd client                                                           ✔ 
+    ~/Dev/dotnet/DatingApp/client    main !5  ng g --help                                                          ✔ 
+ng generate
+
+Generates and/or modifies files based on a schematic.
+
+Commands:
+  ng g <schematic>              Run the provided schematic.                                                          [default]
+  ng g app-shell                Generates an application shell for running a server-side version of an app.
+  ng g application [name]       Generates a new basic application definition in the "projects" subfolder of the workspace.
+                                                                                                                [aliases: app]
+  ng g class [name]             Creates a new, generic class definition in the given or default project.         [aliases: cl]
+  ng g component [name]         Creates a new, generic component definition in the given or default project.      [aliases: c]
+  ng g directive [name]         Creates a new, generic directive definition in the given or default project.      [aliases: d]
+  ng g enum [name]              Generates a new, generic enum definition for the given or default project.        [aliases: e]
+  ng g guard [name]             Generates a new, generic route guard definition in the given or default project.  [aliases: g]
+  ng g interceptor [name]       Creates a new, generic interceptor definition in the given or default project.
+  ng g interface [name] [type]  Creates a new, generic interface definition in the given or default project.      [aliases: i]
+  ng g library [name]           Creates a new, generic library project in the current workspace.                [aliases: lib]
+  ng g module [name]            Creates a new, generic NgModule definition in the given or default project.       [aliases: m]
+  ng g pipe [name]              Creates a new, generic pipe definition in the given or default project.           [aliases: p]
+  ng g resolver [name]          Generates a new, generic resolver definition in the given or default project.     [aliases: r]
+  ng g service [name]           Creates a new, generic service definition in the given or default project.        [aliases: s]
+  ng g service-worker           Pass this schematic to the "run" command to create a service worker
+  ng g web-worker [name]        Creates a new, generic web worker definition in the given or default project.
+
+Arguments:
+  schematic  The [collection:schematic] to run.                                                                       [string]
+
+Options:
+  --help         Shows a help message for this command in the console.                                               [boolean]
+  --interactive  Enable interactive input prompts.                                                   [boolean] [default: true]
+  --dry-run      Run through and reports activity without writing out results.                      [boolean] [default: false]
+  --defaults     Disable interactive input prompts for options with a default.                      [boolean] [default: false]
+  --force        Force overwriting of existing files.                                               [boolean] [default: false]
+    ~/Dev/dotnet/DatingApp/client    main !5  ng g r _resolvers/member-detailed --dry-run                          ✔ 
+CREATE src/app/_resolvers/member-detailed.resolver.spec.ts (406 bytes)
+CREATE src/app/_resolvers/member-detailed.resolver.ts (409 bytes)
+
+NOTE: The "--dry-run" option means no changes were made.
+    ~/Dev/dotnet/DatingApp/client    main !5  ng g r _resolvers/member-detailed --skip-tests                       ✔ 
+CREATE src/app/_resolvers/member-detailed.resolver.ts (409 bytes)
+    ~/Dev/dotnet/DatingApp/client    main !5 ?1             

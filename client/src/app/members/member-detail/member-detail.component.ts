@@ -13,8 +13,8 @@ import { MessageService } from 'src/app/_services/message.service';
   styleUrls: ['./member-detail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
-  @ViewChild('memberTabs') memberTabs?: TabsetComponent;
-  member: Member | undefined;
+  @ViewChild('memberTabs', {static: true}) memberTabs?: TabsetComponent;      // this is dynamic by default; if we set it to static, then it means that "memberTabs" should be constructed immideately. However, for this to work, we need to remove any conditionals inside our template. Tldr: static is required for query params to work OUTSIDE this component
+  member: Member = {} as Member;      // this initializes our member with an empty object , but should later be populated from our route by the route resolver ! ! !
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
   activeTab?: TabDirective;
@@ -23,7 +23,15 @@ export class MemberDetailComponent implements OnInit {
   constructor(private memberService: MembersService, private route: ActivatedRoute, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.loadMember();
+    this.route.data.subscribe({
+      next: data => this.member = data['member']        // 'member' param should be the same as the corresponding property in app-routing-module
+    })
+
+    this.route.queryParams.subscribe({      // since the component is loaded before the template, at this stage we do not have access to the template (and with this, an access to the template tabs)
+      next: params => {
+        params['tab'] && this.selectTab(params['tab'])
+      }
+    })
 
     this.galleryOptions = [
       {
@@ -35,6 +43,8 @@ export class MemberDetailComponent implements OnInit {
         preview: false
       }
     ]
+
+    this.galleryImages = this.getImages();
 
     // this.galleryImages = this.getImages();         // Now it is commented because this function would run and finish BEFORE the above-wirtten "this.loadMember()" would return the requested data, so that's why we moved it direcrly to the loadMember() function to ensure we retrieve images strictly after we requested all other requested data
   }
@@ -67,15 +77,10 @@ export class MemberDetailComponent implements OnInit {
     return imageUrls;
   }
 
-  loadMember() {
-    const username = this.route.snapshot.paramMap.get('username');    // in modern JS/TS, const is better that var in this case
-    if (!username) return;
-    this.memberService.getMember(username).subscribe({
-      next: member => {
-        this.member = member;
-        this.galleryImages = this.getImages();        // Now it is here (see comment above)
-      }
-    })
+  selectTab(heading: string) {
+    if (this.memberTabs) {
+      this.memberTabs.tabs.find(x => x.heading === heading)!.active = true;     // there should have been a "?" instead of "!", but because TS argues about ?, we put ! (we tell TS that we know better in this circumstance)
+    }
   }
 
 }

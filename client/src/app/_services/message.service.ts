@@ -25,4 +25,8 @@ export class MessageService {
   sendMessage(username: string, content: string) {
     return this.http.post<Message>(this.baseUrl + 'messages', {recipientUsername: username, content})     // we "rename" username into recipientUsername for the API
   }
+
+  deleteMessage(id: number) {
+    return this.http.delete(this.baseUrl + 'messages/' + id);
+  }
 }

@@ -72,8 +72,8 @@
                     </div>
                 </td>
                 <td>{{message.messageSent | timeago}}</td>
-                <td>
-                    <button class="btn btn-danger">Delete</button>
+                <td>                    <!-- $event.stopPropagation() will stop routing to the member-detailed component (which normally happens when we click this area aroud the Delete button, which is what we want, so it's OK) : -->
+                    <button (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
         </tbody>

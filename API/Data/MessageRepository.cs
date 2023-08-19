@@ -40,9 +40,19 @@ namespace API.Data
 
             query = messageParams.Container switch
             {
-                "Inbox" => query.Where(u => u.RecipientUsername == messageParams.Username),
-                "Outbox" => query.Where(u => u.SenderUsername == messageParams.Username),
-                _ => query.Where(u => u.RecipientUsername == messageParams.Username && u.DateRead == null)          // basically the default parameter, which is "Unread"
+                "Inbox" => query.Where(u =>
+                    u.RecipientUsername == messageParams.Username &&
+                    u.RecipientDeleted == false
+                ),
+                "Outbox" => query.Where(
+                    u => u.SenderUsername == messageParams.Username &&
+                    u.SenderDeleted == false
+                ),
+                _ => query.Where(u =>                   // basically the default parameter, which is "Unread"
+                    u.RecipientUsername == messageParams.Username &&
+                    u.RecipientDeleted == false &&
+                    u.DateRead == null
+                )
             };
 
             var messages = query.ProjectTo<MessageDto>(_mapper.ConfigurationProvider);
@@ -56,9 +66,13 @@ namespace API.Data
                 .Include(u => u.Sender).ThenInclude(p => p.Photos)              // ThenInclude() means we Include(), but not from Messages, but from the Sender, which is AppUser
                 .Include(u => u.Recipient).ThenInclude(p => p.Photos)           // same
                 .Where(m =>
-                    m.RecipientUsername == currentUserName && m.SenderUsername == recipientUserName
+                    m.RecipientUsername == currentUserName &&
+                    m.RecipientDeleted == false &&
+                    m.SenderUsername == recipientUserName
                     ||
-                    m.RecipientUsername == recipientUserName && m.SenderUsername == currentUserName
+                    m.RecipientUsername == recipientUserName &&
+                    m.SenderUsername == currentUserName &&
+                    m.SenderDeleted == false
                 ).OrderBy(m => m.MessageSent)
                 .ToListAsync();     // the query is performed here
             

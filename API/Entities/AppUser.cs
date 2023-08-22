@@ -1,11 +1,14 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace API.Entities
 {
-    public class AppUser
+    public class AppUser : IdentityUser<int>        // int because we want int Id, not string Id (which is default)
     {
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
+        // We don't need these properties anymore as they are already provided by the inherited class:
+        // public int Id { get; set; }
+        // public string UserName { get; set; }
+        // public byte[] PasswordHash { get; set; }
+        // public byte[] PasswordSalt { get; set; }
         public DateOnly DateOfBirth { get; set; }
         public string KnownAs { get; set; }
         public DateTime Created { get; set; } = DateTime.UtcNow;
@@ -31,5 +34,7 @@ namespace API.Entities
         // Many-to-Many relationship
         public List<Message> MessagesSent { get; set; }
         public List<Message> MessagesReceived { get; set; }
+
+        public ICollection<AppUserRole> UserRoles { get; set; }
     }
 }

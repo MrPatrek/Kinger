@@ -1,0 +1,7 @@
+
+cd API
+dotnet ef migrations add IdentityAdded
+dotnet run
+
+
+

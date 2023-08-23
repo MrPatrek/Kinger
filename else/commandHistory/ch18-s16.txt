@@ -20,3 +20,20 @@ dotnet watch 🚀 Started
 Building...
 
 # cutted
+
+
+
+
+
+# Later, again
+
+    ~/DevProjects/dotnet/DatingApp    main !2  cd API                                                              ✔ 
+    ~/Dev/dotnet/DatingApp/API    main !2  dotnet ef database drop                                                 ✔ 
+Build started...
+Build succeeded.
+Are you sure you want to drop the database 'main' on server 'datingapp.db'? (y/N)
+y
+Dropping database 'main' on server 'datingapp.db'.
+Successfully dropped database 'main'.
+    ~/Dev/d/DatingApp/API    main !3        
+

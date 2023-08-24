@@ -136,3 +136,14 @@ CREATE src/app/_services/admin.service.ts (134 bytes)
 
 
 
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main !2  cd client                                                           ✔ 
+    ~/Dev/dotnet/DatingApp/client    main !2  ng g c modals/roles-modal --skip-tests                               ✔ 
+CREATE src/app/modals/roles-modal/roles-modal.component.css (0 bytes)
+CREATE src/app/modals/roles-modal/roles-modal.component.html (26 bytes)
+CREATE src/app/modals/roles-modal/roles-modal.component.ts (294 bytes)
+UPDATE src/app/app.module.ts (3636 bytes)
+

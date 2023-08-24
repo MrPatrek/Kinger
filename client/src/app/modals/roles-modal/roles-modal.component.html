@@ -5,7 +5,7 @@
     </button>
 </div>
 <div class="modal-body">
-    <form #rolesForm="ngForm" id="rolesForm">       <!-- id is for button outside this form below -->
+    <form #rolesForm="ngForm" id="rolesForm">       <!-- id is for button outside this form below (as I can see now, it was not neccessary, we don't use it in this case) -->
         <div class="form-check" *ngFor="let role of availableRoles">
             <input
                 type="checkbox"

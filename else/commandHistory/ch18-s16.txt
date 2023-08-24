@@ -113,3 +113,26 @@ NOTE: The "--dry-run" option means no changes were made.
 CREATE src/app/_directives/has-role.directive.ts (143 bytes)
 UPDATE src/app/app.module.ts (3281 bytes)
 
+
+
+
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main  cd client                                                              ✔ 
+    ~/Dev/dotnet/DatingApp/client    main  ng g c admin/user-management --skip-tests                               ✔ 
+CREATE src/app/admin/user-management/user-management.component.css (0 bytes)
+CREATE src/app/admin/user-management/user-management.component.html (30 bytes)
+CREATE src/app/admin/user-management/user-management.component.ts (310 bytes)
+UPDATE src/app/app.module.ts (3403 bytes)
+    ~/Dev/dotnet/DatingApp/client    main !1 ?1  ng g c admin/photo-management --skip-tests                        ✔ 
+CREATE src/app/admin/photo-management/photo-management.component.css (0 bytes)
+CREATE src/app/admin/photo-management/photo-management.component.html (31 bytes)
+CREATE src/app/admin/photo-management/photo-management.component.ts (314 bytes)
+UPDATE src/app/app.module.ts (3529 bytes)
+    ~/Dev/dotnet/DatingApp/client    main !1 ?2  ng g s _services/admin --skip-tests                               ✔ 
+CREATE src/app/_services/admin.service.ts (134 bytes)
+
+
+

@@ -37,3 +37,18 @@ Dropping database 'main' on server 'datingapp.db'.
 Successfully dropped database 'main'.
     ~/Dev/d/DatingApp/API    main !3        
 
+
+
+
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main  cd client                                                              ✔ 
+    ~/Dev/dotnet/DatingApp/client    main  ng g c admin/admin-panel --skip-tests                                   ✔ 
+CREATE src/app/admin/admin-panel/admin-panel.component.css (0 bytes)
+CREATE src/app/admin/admin-panel/admin-panel.component.html (26 bytes)
+CREATE src/app/admin/admin-panel/admin-panel.component.ts (294 bytes)
+UPDATE src/app/app.module.ts (3190 bytes)
+
+

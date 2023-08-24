@@ -52,3 +52,14 @@ CREATE src/app/admin/admin-panel/admin-panel.component.ts (294 bytes)
 UPDATE src/app/app.module.ts (3190 bytes)
 
 
+
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main !2  cd client                                                           ✔ 
+    ~/Dev/dotnet/DatingApp/client    main !2  ng g guard _guards/admin --skip-tests                                ✔ 
+? Which interfaces would you like to implement? CanActivate
+CREATE src/app/_guards/admin.guard.ts (458 bytes)
+
+

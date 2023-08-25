@@ -3,6 +3,7 @@ using API.Data.Migrations;
 using API.Entities;
 using API.Extensions;
 using API.Middleware;
+using API.SignalR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,7 @@ app.UseAuthentication();        // Do you have a valid token?           E.g., yo
 app.UseAuthorization();         // What are you allowed to do?                                          Are you over 18?
 
 app.MapControllers();
+app.MapHub<PresenceHub>("hubs/presence");
 
 // Seed the user data to the database:
 using var scope = app.Services.CreateScope();

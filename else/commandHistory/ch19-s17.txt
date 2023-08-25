@@ -1,0 +1,69 @@
+
+    ~/DevProjects/dotnet/DatingApp    main  cd client                                                              ✔ 
+    ~/Dev/dotnet/DatingApp/client    main  npm install @microsoft/signalr                                          ✔ 
+npm notice 
+npm notice New major version of npm available! 8.19.4 -> 9.8.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v9.8.1
+npm notice Run npm install -g npm@9.8.1 to update!
+npm notice 
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: @kolkov/ngx-gallery@2.0.1
+npm ERR! Found: @angular/animations@14.3.0
+npm ERR! node_modules/@angular/animations
+npm ERR!   peerOptional @angular/animations@"14.3.0" from @angular/platform-browser@14.3.0
+npm ERR!   node_modules/@angular/platform-browser
+npm ERR!     peer @angular/platform-browser@"14.3.0" from @angular/forms@14.3.0
+npm ERR!     node_modules/@angular/forms
+npm ERR!       peer @angular/forms@"^14.0.0" from ngx-bootstrap@9.0.0
+npm ERR!       node_modules/ngx-bootstrap
+npm ERR!         ngx-bootstrap@"^9.0.0" from the root project
+npm ERR!       1 more (the root project)
+npm ERR!     peer @angular/platform-browser@"14.3.0" from @angular/platform-browser-dynamic@14.3.0
+npm ERR!     node_modules/@angular/platform-browser-dynamic
+npm ERR!       @angular/platform-browser-dynamic@"^14.2.0" from the root project
+npm ERR!     3 more (@angular/router, ngx-toastr, the root project)
+npm ERR!   peer @angular/animations@"^14.0.0" from ngx-bootstrap@9.0.0
+npm ERR!   node_modules/ngx-bootstrap
+npm ERR!     ngx-bootstrap@"^9.0.0" from the root project
+npm ERR!   1 more (the root project)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/animations@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm ERR! node_modules/@kolkov/ngx-gallery
+npm ERR!   @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: @angular/animations@13.4.0
+npm ERR! node_modules/@angular/animations
+npm ERR!   peer @angular/animations@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm ERR!   node_modules/@kolkov/ngx-gallery
+npm ERR!     @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! See /home/sanya/.npm/eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/sanya/.npm/_logs/2023-08-25T14_02_47_082Z-debug-0.log
+    ~/Dev/dotnet/DatingApp/client    main  npm install @microsoft/signalr --legacy-peer-deps                     1 ✘ 
+
+added 16 packages, removed 1 package, and audited 1000 packages in 7s
+
+136 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+    ~/Dev/d/DatingApp/client    main !2  ng g s _services/presence --skip-tests                             ✔  8s  
+CREATE src/app/_services/presence.service.ts (137 bytes)
+
+
+
+

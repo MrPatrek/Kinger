@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
 import { Message } from '../_models/message';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
 import { User } from '../_models/user';
 
 @Injectable({
@@ -32,6 +32,14 @@ export class MessageService {
       this.hubConnection.on('ReceiveMessageThread', messages => {
         this.messageThreadSource.next(messages);
       })
+
+      this.hubConnection.on('NewMessage', message => {
+        this.messageThread$.pipe(take(1)).subscribe({
+          next: messages => {
+            this.messageThreadSource.next([...messages, message])
+          }
+        })
+      })
   }
 
   stopHubConnection() {
@@ -50,8 +58,11 @@ export class MessageService {
     return this.http.get<Message[]>(this.baseUrl + 'messages/thread/' + username);
   }
 
-  sendMessage(username: string, content: string) {
-    return this.http.post<Message>(this.baseUrl + 'messages', {recipientUsername: username, content})     // we "rename" username into recipientUsername for the API
+  async sendMessage(username: string, content: string) {      // 'async' guarantees that we will return a promise from the return below:
+    // OLD:
+    // return this.http.post<Message>(this.baseUrl + 'messages', {recipientUsername: username, content})     // we "rename" username into recipientUsername for the API
+    return this.hubConnection?.invoke('SendMessage', {recipientUsername: username, content})        // 'SendMessage' is a method name from API's MessageHub.cs !
+      .catch(error => console.log(error));
   }
 
   deleteMessage(id: number) {

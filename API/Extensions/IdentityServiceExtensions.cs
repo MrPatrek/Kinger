@@ -31,10 +31,10 @@ namespace API.Extensions
 
                     options.Events = new JwtBearerEvents
                     {
-                        OnMessageReceived = context => 
+                        OnMessageReceived = context =>      // invoked when a FIRST WebSocket protocol message is received (i.e., for each connection separately) ?
                         {
-                            var accessToken = context.Request.Query["access_token"];        // this is what client SignalR uses
-                            var path = context.HttpContext.Request.Path;
+                            var accessToken = context.Request.Query["access_token"];        // this is the name that client SignalR uses in its query (but the token itself is the same as we use for HTTP)
+                            var path = context.HttpContext.Request.Path;                    // keep in mind that this request is an HTTP one (just to initialize a WebSocket connection)
                             
                             if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
                             {

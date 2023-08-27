@@ -43,6 +43,12 @@ try
     var userManager = services.GetRequiredService<UserManager<AppUser>>();
     var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
     await context.Database.MigrateAsync();
+
+    // Clear the Connections table each time the server starts (to remove possible old connections which could have been still preserved because of urgent server stop, restart etc.)
+    // context.Connections.RemoveRange(context.Connections);        // this is good for small-scale remove operations from a table, but if we have thousands of rows here, it is very inefficient then.
+    // Because of this, we will execute the SQL query directly (without using EF):
+    await context.Database.ExecuteSqlRawAsync("DELETE FROM [Connections]");         // this query is a specific one for SQLite. Other SQL variants would use different query, which is "TRUNCATE TABLE [Connections]"
+
     await Seed.SeedUsers(userManager, roleManager);
 }
 catch (Exception ex)

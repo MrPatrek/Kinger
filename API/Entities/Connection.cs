@@ -13,7 +13,7 @@ namespace API.Entities
             Username = username;
         }
 
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; }            // It is a PK because of Connection (class name) + Id
         public string Username { get; set; }
     }
 }

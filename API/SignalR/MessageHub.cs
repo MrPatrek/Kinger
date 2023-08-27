@@ -14,8 +14,12 @@ namespace API.SignalR
         private readonly IMessageRepository _messageRepository;
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-        public MessageHub(IMessageRepository messageRepository, IUserRepository userRepository, IMapper mapper)
+        private readonly IHubContext<PresenceHub> _presenceHub;
+
+        public MessageHub(IMessageRepository messageRepository, IUserRepository userRepository,
+            IMapper mapper, IHubContext<PresenceHub> presenceHub)
         {
+            _presenceHub = presenceHub;
             _mapper = mapper;
             _userRepository = userRepository;
             _messageRepository = messageRepository;
@@ -65,9 +69,18 @@ namespace API.SignalR
 
             var group = await _messageRepository.GetMessageGroup(groupName);
 
-            if (group.Connections.Any(x => x.Username == recipient.UserName))
+            if (group.Connections.Any(x => x.Username == recipient.UserName))           // check if recipient is curently in chat with the sender
             {
                 message.DateRead = DateTime.UtcNow;
+            }
+            else
+            {
+                var connections = await PresenceTracker.GetConnectionsForUser(recipient.UserName);          // check if recipient is online at all
+                if (connections != null)
+                {
+                    await _presenceHub.Clients.Clients(connections).SendAsync("NewMessageReceived",
+                        new {username = sender.UserName, knownAs = sender.KnownAs});
+                }
             }
 
             _messageRepository.AddMessage(message);             // don't forget that at this stage, the message is still not saved in the DB ... it is saved a line below:

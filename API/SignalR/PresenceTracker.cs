@@ -48,5 +48,17 @@ namespace API.SignalR
 
             return Task.FromResult(onlineUsers);
         }
+
+        public static Task<List<string>> GetConnectionsForUser(string username)             // check if user is online at all
+        {
+            List<string> connectionIds;
+
+            lock(OnlineUsers)
+            {
+                connectionIds = OnlineUsers.GetValueOrDefault(username);
+            }
+
+            return Task.FromResult(connectionIds);              // return all current connectionId-s for specified user (e.g., user tom with one current connection for smartphone, one for laptop, etc.)
+        }
     }
 }

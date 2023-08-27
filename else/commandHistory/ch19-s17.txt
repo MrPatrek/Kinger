@@ -67,3 +67,12 @@ CREATE src/app/_services/presence.service.ts (137 bytes)
 
 
 
+
+
+# Later
+
+    ~/DevProjects/dotnet/DatingApp    main !4 ?2  cd API                                                           ✔ 
+    ~/Dev/dotnet/DatingApp/API    main !4 ?2  dotnet ef migrations add GroupsAdded                                 ✔ 
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'

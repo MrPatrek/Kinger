@@ -14,23 +14,20 @@ namespace API.SignalR
         }
         public override async Task OnConnectedAsync()
         {
-            await _tracker.UserConnected(Context.User.GetUsername(), Context.ConnectionId);
-            
-            // Others means everybody online except for us
-            await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUsername());     // send our username (who's logged in) to all other users
+            var isOnline = await _tracker.UserConnected(Context.User.GetUsername(), Context.ConnectionId);
+            if (isOnline)               // a better naming for 'isOnline' var would be 'isFirstLogIn' or 'ifFirstSession'
+                // Others means everybody online except for us:
+                await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUsername());     // send our username (who has just logged in) to all other users
 
             var currentUsers = await _tracker.GetOnlineUsers();
-            await Clients.All.SendAsync("GetOnlineUsers", currentUsers);
+            await Clients.Caller.SendAsync("GetOnlineUsers", currentUsers);         // only the caller will retrieve all the users
         }
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
-            await _tracker.UserDisconnected(Context.User.GetUsername(), Context.ConnectionId);
-
-            await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUsername());
-
-            var currentUsers = await _tracker.GetOnlineUsers();
-            await Clients.All.SendAsync("GetOnlineUsers", currentUsers);
+            var isOffline = await _tracker.UserDisconnected(Context.User.GetUsername(), Context.ConnectionId);
+            if (isOffline)              // a better naming for 'isOffline' var would be 'noSessionsLeftForUser'
+                await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUsername());
 
             await base.OnDisconnectedAsync(exception);
         }

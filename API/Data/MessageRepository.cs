@@ -113,7 +113,8 @@ namespace API.Data
                     message.DateRead = DateTime.UtcNow;
                 }
 
-                await _context.SaveChangesAsync();
+                // Below operation is unsafe, any data save shoud occur outside the repository (i.e., using UnitOfWork)
+                // await _context.SaveChangesAsync();           // should be DELETED because now executed inside MessageHub
             }
 
             return _mapper.Map<IEnumerable<MessageDto>>(messages);

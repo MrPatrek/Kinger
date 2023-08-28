@@ -73,11 +73,6 @@ namespace API.Data
                 .ToListAsync();
         }
 
-        public async Task<bool> SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0;        // if it is 0, then nothing was saved (bool false). if it is greater than 0, then AT LEAST SOMETHING was saved to the database (bool true)
-        }
-
         public void Update(AppUser user)
         {
             _context.Entry(user).State = EntityState.Modified;      // it tells our EF tracker that smth has changed with our passed user entity (we don't save anything at this point ! ! !)

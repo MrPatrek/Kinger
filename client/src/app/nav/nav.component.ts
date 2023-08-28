@@ -18,7 +18,10 @@ export class NavComponent implements OnInit {
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: _ => this.router.navigateByUrl('/members'), // _ is the same as () (for use when we do not have input params)
+      next: _ => {
+        this.router.navigateByUrl('/members'); // _ is the same as () (for use when we do not have input params)
+        this.model = {};      // because of the two-way binding between the component and the template form, this is going to reset the form used for log in (where we enter username and password)
+    }
       // Now errors are handled by the interceptors, so that's why we comment out what we have below :
       // error: error => this.toastr.error(error.error)
     })

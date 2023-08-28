@@ -88,9 +88,11 @@ namespace API.Data
 
         public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName)
         {
-            var messages = await _context.Messages
-                .Include(u => u.Sender).ThenInclude(p => p.Photos)              // ThenInclude() means we Include(), but not from Messages, but from the Sender, which is AppUser
-                .Include(u => u.Recipient).ThenInclude(p => p.Photos)           // same
+            var query = _context.Messages           // it was 'var messages' before...
+                // If we use Projection (NOW we do when we return), then we do not need to use Include():
+                // At the same time, we want to remove all redundant selects which we do not need (lots of columns from asp net identity), so that's why we comment these Include-s of Users:
+                // .Include(u => u.Sender).ThenInclude(p => p.Photos)              // ThenInclude() means we Include(), but not from Messages, but from the Sender, which is AppUser
+                // .Include(u => u.Recipient).ThenInclude(p => p.Photos)           // same
                 .Where(m =>
                     m.RecipientUsername == currentUserName &&
                     m.RecipientDeleted == false &&
@@ -100,11 +102,13 @@ namespace API.Data
                     m.SenderUsername == currentUserName &&
                     m.SenderDeleted == false
                 ).OrderBy(m => m.MessageSent)
-                .ToListAsync();     // the query is performed here
+                // Now we do not exeucte query, so comment:
+                // .ToListAsync();     // the query is performed here
+                .AsQueryable();
             
-            var unreadMessages = messages
+            var unreadMessages = query
                 .Where(m => m.DateRead == null && m.RecipientUsername == currentUserName)
-                .ToList();        // messages are already in the memory, so no additional query to the DB is performed here
+                .ToList();
             
             if (unreadMessages.Any())
             {
@@ -117,7 +121,9 @@ namespace API.Data
                 // await _context.SaveChangesAsync();           // should be DELETED because now executed inside MessageHub
             }
 
-            return _mapper.Map<IEnumerable<MessageDto>>(messages);
+            // OLD one (inefficient, too many redundant select-s (especially columns from asp net identity) inside query below):
+            // return _mapper.Map<IEnumerable<MessageDto>>(messages);
+            return await query.ProjectTo<MessageDto>(_mapper.ConfigurationProvider).ToListAsync();
         }
 
         public void RemoveConnection(Connection connection)

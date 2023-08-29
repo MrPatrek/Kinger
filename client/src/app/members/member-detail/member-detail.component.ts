@@ -1,7 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
-import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
+import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
+import { TabDirective, TabsModule, TabsetComponent } from 'ngx-bootstrap/tabs';
+import { TimeagoModule } from 'ngx-timeago';
 import { take } from 'rxjs';
 import { Member } from 'src/app/_models/member';
 import { Message } from 'src/app/_models/message';
@@ -9,20 +11,22 @@ import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { MessageService } from 'src/app/_services/message.service';
 import { PresenceService } from 'src/app/_services/presence.service';
+import { MemberMessagesComponent } from '../member-messages/member-messages.component';
 
 @Component({
+  standalone: true,
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
-  styleUrls: ['./member-detail.component.css']
+  styleUrls: ['./member-detail.component.css'],
+  imports: [GalleryModule, TabsModule, CommonModule, TimeagoModule, MemberMessagesComponent]
 })
 export class MemberDetailComponent implements OnInit, OnDestroy {
   @ViewChild('memberTabs', {static: true}) memberTabs?: TabsetComponent;      // this is dynamic by default; if we set it to static, then it means that "memberTabs" should be constructed immideately. However, for this to work, we need to remove any conditionals inside our template. Tldr: static is required for query params to work OUTSIDE this component
   member: Member = {} as Member;      // this initializes our member with an empty object , but should later be populated from our route by the route resolver ! ! !
-  galleryOptions: NgxGalleryOptions[] = [];
-  galleryImages: NgxGalleryImage[] = [];
   activeTab?: TabDirective;
   messages: Message[] = [];
   user?: User;
+  images: GalleryItem[] = [];
 
   constructor(private accountService: AccountService, private route: ActivatedRoute,
     private messageService: MessageService, public presenceService: PresenceService) {
@@ -44,18 +48,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
       }
     })
 
-    this.galleryOptions = [
-      {
-        width: '500px',
-        height: '500px',
-        imagePercent: 100,
-        thumbnailsColumns: 4,
-        imageAnimation: NgxGalleryAnimation.Slide,
-        preview: false
-      }
-    ]
-
-    this.galleryImages = this.getImages();
+    this.getImages();
 
     // this.galleryImages = this.getImages();         // Now it is commented because this function would run and finish BEFORE the above-wirtten "this.loadMember()" would return the requested data, so that's why we moved it direcrly to the loadMember() function to ensure we retrieve images strictly after we requested all other requested data
   }
@@ -84,16 +77,10 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   }
 
   getImages() {
-    if (!this.member) return [];     // if it has been just "return" without ahything, then it would've returned "undefined", which is not what we need, we neem empty array (which is []) 
-    const imageUrls = [];
+    if (!this.member) return;
     for (const photo of this.member.photos) {
-      imageUrls.push({
-        small: photo.url,
-        medium: photo.url,
-        big: photo.url
-      })
+      this.images.push(new ImageItem({src: photo.url, thumb: photo.url}))
     }
-    return imageUrls;
   }
 
   selectTab(heading: string) {

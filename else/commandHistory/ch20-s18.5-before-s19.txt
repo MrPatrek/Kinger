@@ -404,3 +404,40 @@ found 0 vulnerabilities
 
 # 'ng serve' did not work because the installed TS version was above the required one, so I temporaly manually edited the dependency inside package.json file to the needed version, have run 'npm i', and then 'ng serve' wokred. I will later come back to the question of dependencies, i.e. I will check them so that everything's fine
 
+
+
+
+
+
+
+
+
+# After manually deleting row     "@kolkov/ngx-gallery": "^2.0.1",        from the dependencies:
+
+    ~/DevProjects/dotnet/DatingApp    main !3  cd client                                                                                  ✔ 
+    ~/DevProjects/dotnet/DatingApp/client    main !3  npm install                                                                         ✔ 
+
+added 1 package, removed 1 package, and audited 996 packages in 2s
+
+115 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+    ~/DevProjects/dotnet/DatingApp/client    main !4  npm i ng-gallery @angular/cdk                                                       ✔ 
+
+added 3 packages, and audited 999 packages in 4s
+
+115 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.

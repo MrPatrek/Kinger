@@ -154,3 +154,161 @@ UPDATE src/app/_guards/auth.guard.ts (685 bytes)
 
 
 
+# Updating packages:
+
+    ~/DevProjects/dotnet/DatingApp    main  cd client                                                                                     ✔ 
+    ~/DevProjects/dotnet/DatingApp/client    main  npm outdated                                                                           ✔ 
+Package                      Current   Wanted  Latest  Location                                  Depended by
+@types/jasmine                 4.0.3    4.0.3   4.3.5  node_modules/@types/jasmine               client
+bootstrap                      5.3.0    5.3.1   5.3.1  node_modules/bootstrap                    client
+bootswatch                     5.2.3    5.3.1   5.3.1  node_modules/bootswatch                   client
+jasmine-core                   4.3.0    4.3.0   5.1.1  node_modules/jasmine-core                 client
+karma-chrome-launcher          3.1.1    3.1.1   3.2.0  node_modules/karma-chrome-launcher        client
+karma-jasmine-html-reporter    2.0.0    2.0.0   2.1.0  node_modules/karma-jasmine-html-reporter  client
+ng2-file-upload              2.0.0-3  2.0.0-3   5.0.0  node_modules/ng2-file-upload              client
+ngx-bootstrap                  9.0.0    9.0.0  11.0.2  node_modules/ngx-bootstrap                client
+ngx-spinner                   14.0.0   14.0.0  16.0.2  node_modules/ngx-spinner                  client
+ngx-timeago                    2.0.0    2.0.0   3.0.0  node_modules/ngx-timeago                  client
+rxjs                           7.5.7    7.5.7   7.8.1  node_modules/rxjs                         client
+tslib                          2.6.1    2.6.2   2.6.2  node_modules/tslib                        client
+typescript                     4.9.5    4.9.5   5.2.2  node_modules/typescript                   client
+    ~/DevProjects/dotnet/DatingApp/client    main  npm i -g npm-check-updates && ncu -u && npm i -f                              1 ✘  6s  
+
+added 315 packages, and audited 316 packages in 13s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Upgrading /home/sanya/DevProjects/dotnet/DatingApp/client/package.json
+[====================] 32/32 100%
+
+ @types/jasmine                 ~4.0.0  →   ~4.3.5
+ bootstrap                      ^5.2.3  →   ^5.3.1
+ bootswatch                     ^5.2.3  →   ^5.3.1
+ jasmine-core                   ~4.3.0  →   ~5.1.1
+ karma                          ~6.4.0  →   ~6.4.2
+ karma-chrome-launcher          ~3.1.0  →   ~3.2.0
+ karma-coverage                 ~2.2.0  →   ~2.2.1
+ karma-jasmine-html-reporter    ~2.0.0  →   ~2.1.0
+ ng2-file-upload              ^2.0.0-3  →   ^5.0.0
+ ngx-bootstrap                  ^9.0.0  →  ^11.0.2
+ ngx-spinner                   ^14.0.0  →  ^16.0.2
+ ngx-timeago                    ^2.0.0  →   ^3.0.0
+ rxjs                           ~7.5.0  →   ~7.8.1
+ tslib                          ^2.3.0  →   ^2.6.2
+ typescript                     ~4.9.5  →   ~5.2.2
+
+Run npm install to install new versions.
+npm WARN using --force Recommended protections disabled.
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: client@0.0.0
+npm WARN Found: typescript@4.9.5
+npm WARN node_modules/typescript
+npm WARN   dev typescript@"~5.2.2" from the root project
+npm WARN   5 more (@angular-devkit/build-angular, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer typescript@">=4.9.3 <5.2" from @angular-devkit/build-angular@16.2.0
+npm WARN node_modules/@angular-devkit/build-angular
+npm WARN   dev @angular-devkit/build-angular@"^16.2.0" from the root project
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: client@0.0.0
+npm WARN Found: typescript@4.9.5
+npm WARN node_modules/typescript
+npm WARN   dev typescript@"~5.2.2" from the root project
+npm WARN   5 more (@angular-devkit/build-angular, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer typescript@">=4.9.3 <5.2" from @angular/compiler-cli@16.2.2
+npm WARN node_modules/@angular/compiler-cli
+npm WARN   dev @angular/compiler-cli@"^16.2.2" from the root project
+npm WARN   2 more (@angular-devkit/build-angular, @ngtools/webpack)
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: client@0.0.0
+npm WARN Found: typescript@4.9.5
+npm WARN node_modules/typescript
+npm WARN   dev typescript@"~5.2.2" from the root project
+npm WARN   5 more (@angular-devkit/build-angular, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer typescript@">=4.9.3 <5.2" from @angular/compiler-cli@16.2.2
+npm WARN node_modules/@angular/compiler-cli
+npm WARN   dev @angular/compiler-cli@"^16.2.2" from the root project
+npm WARN   2 more (@angular-devkit/build-angular, @ngtools/webpack)
+npm WARN ERESOLVE overriding peer dependency
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: @kolkov/ngx-gallery@2.0.1
+npm WARN Found: @angular/animations@16.2.2
+npm WARN node_modules/@angular/animations
+npm WARN   @angular/animations@"^16.2.2" from the root project
+npm WARN   3 more (@angular/platform-browser, ngx-bootstrap, ngx-spinner)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer @angular/animations@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm WARN node_modules/@kolkov/ngx-gallery
+npm WARN   @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm WARN 
+npm WARN Conflicting peer dependency: @angular/animations@13.4.0
+npm WARN node_modules/@angular/animations
+npm WARN   peer @angular/animations@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm WARN   node_modules/@kolkov/ngx-gallery
+npm WARN     @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: @kolkov/ngx-gallery@2.0.1
+npm WARN Found: @angular/common@16.2.2
+npm WARN node_modules/@angular/common
+npm WARN   @angular/common@"^16.2.2" from the root project
+npm WARN   8 more (@angular/forms, @angular/platform-browser, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer @angular/common@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm WARN node_modules/@kolkov/ngx-gallery
+npm WARN   @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm WARN 
+npm WARN Conflicting peer dependency: @angular/common@13.4.0
+npm WARN node_modules/@angular/common
+npm WARN   peer @angular/common@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm WARN   node_modules/@kolkov/ngx-gallery
+npm WARN     @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: @kolkov/ngx-gallery@2.0.1
+npm WARN Found: @angular/core@16.2.2
+npm WARN node_modules/@angular/core
+npm WARN   @angular/core@"^16.2.2" from the root project
+npm WARN   12 more (@angular/animations, @angular/common, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer @angular/core@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm WARN node_modules/@kolkov/ngx-gallery
+npm WARN   @kolkov/ngx-gallery@"^2.0.1" from the root project
+npm WARN 
+npm WARN Conflicting peer dependency: @angular/core@13.4.0
+npm WARN node_modules/@angular/core
+npm WARN   peer @angular/core@">=13.0.0 <14" from @kolkov/ngx-gallery@2.0.1
+npm WARN   node_modules/@kolkov/ngx-gallery
+npm WARN     @kolkov/ngx-gallery@"^2.0.1" from the root project
+
+added 3 packages, removed 6 packages, changed 13 packages, and audited 997 packages in 3s
+
+115 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+    ~/DevProjects/dotnet/DatingApp/client    main !2  npm outdated                                                                ✔  23s  
+    ~/DevProjects/dotnet/DatingApp/client    main !2                                  
+
+
+
+
+
+
+
+
+
+

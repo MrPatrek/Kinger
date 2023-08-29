@@ -70,3 +70,87 @@ Error: Repository is not clean. Please commit or stash any changes before updati
 
 # Then, updating to the Angular 16:
 
+    ~/DevProjects/dotnet/DatingApp/client    main  ng update                                                                              ✔ 
+Using package manager: npm
+Collecting installed dependencies...
+Found 32 dependencies.
+    We analyzed your package.json, there are some packages to update:
+    
+      Name                               Version                  Command to update
+     --------------------------------------------------------------------------------
+      @angular/cli                       15.2.9 -> 16.2.0         ng update @angular/cli
+      @angular/core                      15.2.9 -> 16.2.2         ng update @angular/core
+    
+    There might be additional packages which don't provide 'ng update' capabilities that are outdated.
+    You can update the additional packages by running the update command of your package manager.
+    ~/DevProjects/dotnet/DatingApp/client    main  ng update @angular/cli @angular/core                                            ✔  6s  
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 16.2.0 to perform the update.
+✔ Packages successfully installed.
+Using package manager: npm
+Collecting installed dependencies...
+Found 32 dependencies.
+Fetching dependency metadata from registry...
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/animations" (requires ">=13.0.0 <14" (extended), would install "16.2.2").
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/common" (requires ">=13.0.0 <14" (extended), would install "16.2.2").
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/core" (requires ">=13.0.0 <14" (extended), would install "16.2.2").
+                  Package "ngx-bootstrap" has an incompatible peer dependency to "@angular/forms" (requires "^14.0.0" (extended), would install "16.2.2").
+✖ Migration failed: Incompatible peer dependencies found.
+Peer dependency warnings when installing dependencies means that those dependencies might not work correctly together.
+You can use the '--force' option to ignore incompatible peer dependencies and instead address these warnings later.
+  See "/tmp/ng-ZKnyUZ/angular-errors.log" for further details.
+
+    ~/DevProjects/dotnet/DatingApp/client    main  ng update @angular/cli @angular/core --force                                  1 ✘  9s  
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 16.2.0 to perform the update.
+✔ Packages successfully installed.
+Using package manager: npm
+Collecting installed dependencies...
+Found 32 dependencies.
+Fetching dependency metadata from registry...
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/animations" (requires ">=13.0.0 <14" (extended), would install "16.2.2").
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/common" (requires ">=13.0.0 <14" (extended), would install "16.2.2").
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/core" (requires ">=13.0.0 <14" (extended), would install "16.2.2").
+                  Package "ngx-bootstrap" has an incompatible peer dependency to "@angular/forms" (requires "^14.0.0" (extended), would install "16.2.2").
+    Updating package.json with dependency @angular-devkit/build-angular @ "16.2.0" (was "15.2.9")...
+    Updating package.json with dependency @angular/cli @ "16.2.0" (was "15.2.9")...
+    Updating package.json with dependency @angular/compiler-cli @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/animations @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/common @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/compiler @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/core @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/forms @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/platform-browser @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/platform-browser-dynamic @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency @angular/router @ "16.2.2" (was "15.2.9")...
+    Updating package.json with dependency zone.js @ "0.13.1" (was "0.11.8")...
+UPDATE package.json (1349 bytes)
+✔ Packages successfully installed.
+** Executing migrations of package '@angular/cli' **
+
+▸ Remove 'defaultProject' option from workspace configuration.
+  The project to use will be determined from the current working directory.
+  Migration completed (No changes made).
+
+▸ Replace removed 'defaultCollection' option in workspace configuration with 'schematicCollections'.
+  Migration completed (No changes made).
+
+▸ Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds.
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/core' **
+
+▸ In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated.
+  This migration removes imports and 'implements' clauses that contain them.
+UPDATE src/app/_guards/auth.guard.ts (685 bytes)
+  Migration completed (1 file modified).
+
+▸ As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect.
+  Migration completed (No changes made).
+
+
+
+
+
+
+

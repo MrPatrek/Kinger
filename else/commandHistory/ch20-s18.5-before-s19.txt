@@ -1,0 +1,72 @@
+
+# Updating to the Angular 15:
+
+    ~/DevProjects/dotnet/DatingApp    main !1  cd client                                                                                  ✔ 
+    ~/DevProjects/dotnet/DatingApp/client    main !1  ng update                                                                           ✔ 
+Using package manager: npm
+Collecting installed dependencies...
+Found 32 dependencies.
+    We analyzed your package.json, there are some packages to update:
+    
+      Name                               Version                  Command to update
+     --------------------------------------------------------------------------------
+      @angular/cli                       14.2.12 -> 15.2.9        ng update @angular/cli@15
+    ~/Dev/dotnet/DatingApp/client    main !1  ng update @angular/cli@15 @angular/core@15 ngx-toastr --force                     1 ✘  13s  
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 15.2.9 to perform the update.
+✔ Packages successfully installed.
+Using package manager: npm
+Collecting installed dependencies...
+Found 32 dependencies.
+Fetching dependency metadata from registry...
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/animations" (requires ">=13.0.0 <14" (extended), would install "15.2.9").
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/common" (requires ">=13.0.0 <14" (extended), would install "15.2.9").
+                  Package "@kolkov/ngx-gallery" has an incompatible peer dependency to "@angular/core" (requires ">=13.0.0 <14" (extended), would install "15.2.9").
+                  Package "ngx-toastr" has an incompatible peer dependency to "@angular/platform-browser" (requires ">=16.0.0-0", would install "15.2.9").
+                  Package "ngx-toastr" has an incompatible peer dependency to "@angular/core" (requires ">=16.0.0-0", would install "15.2.9")
+                  Package "ngx-toastr" has an incompatible peer dependency to "@angular/common" (requires ">=16.0.0-0", would install "15.2.9")
+                  Package "ngx-toastr" has an incompatible peer dependency to "@angular/platform-browser" (requires ">=16.0.0-0", would install "15.2.9")
+    Updating package.json with dependency @angular-devkit/build-angular @ "15.2.9" (was "14.2.12")...
+    Updating package.json with dependency @angular/cli @ "15.2.9" (was "14.2.12")...
+    Updating package.json with dependency @angular/compiler-cli @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency typescript @ "4.9.5" (was "4.7.4")...
+    Updating package.json with dependency @angular/animations @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency @angular/common @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency @angular/compiler @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency @angular/core @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency @angular/forms @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency @angular/platform-browser @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency @angular/platform-browser-dynamic @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency @angular/router @ "15.2.9" (was "14.3.0")...
+    Updating package.json with dependency ngx-toastr @ "17.0.2" (was "15.2.2")...
+UPDATE package.json (1349 bytes)
+✔ Packages successfully installed.
+** Executing migrations of package '@angular/cli' **
+
+▸ Remove Browserslist configuration files that matches the Angular CLI default configuration.
+DELETE .browserslistrc
+    ~/DevProjects/dotnet/DatingApp/client    main !6  ng update                                                                   ✔  32s  
+Using package manager: npm
+Collecting installed dependencies...
+Found 32 dependencies.
+    We analyzed your package.json, there are some packages to update:
+    
+      Name                               Version                  Command to update
+     --------------------------------------------------------------------------------
+      @angular/cli                       15.2.9 -> 16.2.0         ng update @angular/cli
+      @angular/core                      15.2.9 -> 16.2.2         ng update @angular/core
+    
+    There might be additional packages which don't provide 'ng update' capabilities that are outdated.
+    You can update the additional packages by running the update command of your package manager.
+    ~/DevProjects/dotnet/DatingApp/client    main !6  ng update @angular/cli @angular/core                                         ✔  6s  
+Error: Repository is not clean. Please commit or stash any changes before updating.
+
+
+
+
+
+
+
+
+# Then, updating to the Angular 16:
+

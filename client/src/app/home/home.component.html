@@ -1,10 +1,17 @@
 <div class="container mt-5">
     <div *ngIf="!registerMode" style="text-align: center;">
-        <h1>Find your match</h1>
-        <p class="lead">Come on in to view your matches... all you need to do is sign up!</p>
-        <div class="text-center">
-            <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
-            <button class="btn btn-primary btn-info btn-lg">Learn more</button>
+        <h1>Dating-focused social network</h1>
+
+        <div *ngIf="!(accountService.currentUser$ | async)">
+            <p class="lead">Register to find your love</p>
+            <div class="text-center">
+                <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Sign Up</button>
+                <!-- <button class="btn btn-primary btn-info btn-lg">Learn more</button> -->
+            </div>
+        </div>
+
+        <div *ngIf="(accountService.currentUser$ | async)">
+            <p class="lead">Use the links above to navigate through the website</p>
         </div>
     </div>
 

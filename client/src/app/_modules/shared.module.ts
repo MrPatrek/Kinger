@@ -23,7 +23,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       positionClass: 'toast-bottom-right'
     }),
     NgxSpinnerModule.forRoot({
-      type: 'line-scale-party'
+      type: 'ball-clip-rotate'
     }),
     FileUploadModule,
     BsDatepickerModule.forRoot(),

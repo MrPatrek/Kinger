@@ -1,9 +1,18 @@
 <ng-container>
-    <button class="btn btn-outline-primary me-3" (click)="get500Error()">Test 500 Error</button>
-    <button class="btn btn-outline-primary me-3" (click)="get400Error()">Test 400 Error</button>
-    <button class="btn btn-outline-primary me-3" (click)="get401Error()">Test 401 Error</button>
-    <button class="btn btn-outline-primary me-3" (click)="get404Error()">Test 404 Error</button>
-    <button class="btn btn-outline-primary me-3" (click)="get400ValidationError()">Test 400 Validation Error</button>
+    <div class="mb-3">
+        <h1>Test different errors</h1>
+    </div>
+
+    <button class="btn btn-outline-primary me-3" (click)="get500Error()">500 Error</button>
+    <button class="btn btn-outline-primary me-3" (click)="get400Error()">400 Error</button>
+    <button class="btn btn-outline-primary me-3" (click)="get401Error()">401 Error</button>
+    <button class="btn btn-outline-primary me-3" (click)="get404Error()">404 Error</button>
+    <button class="btn btn-outline-primary me-3" (click)="get400ValidationError()">400 Validation Error</button>
+
+    <div class="mt-3">
+        <p>Note: <em>401 Error</em> will not work properly from here because in order to see this error, you need to be unauthorized, but now you are. Error handling was performed before the authorization was introduced, so right now you will get the default <em>Something unexpected went wrong</em> notification.</p>
+        <p>An alternative way to get <em>401 Error</em> is by just logining in with some fake <em>username</em> and <em>password</em>.</p>
+    </div>
 
     <div class="row mt-5" *ngIf="validationErrors.length > 0">
         <ul class="text-danger">

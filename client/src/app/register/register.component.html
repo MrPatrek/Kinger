@@ -3,8 +3,8 @@
     <hr>
 
     <!-- Keep in mind that labels below include both "" and '' ! ! ! -->
+    <app-text-input [formControl]="$any(registerForm.controls['knownAs'])" [label]="'Full name'"></app-text-input>
     <app-text-input [formControl]="$any(registerForm.controls['username'])" [label]="'Username'"></app-text-input>
-    <app-text-input [formControl]="$any(registerForm.controls['knownAs'])" [label]="'Known as'"></app-text-input>
     
     <div class="mb-3">
         <label style="margin-right: 10px;">I am a: </label>

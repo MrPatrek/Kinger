@@ -17,7 +17,7 @@
                 <li *appHasRole="['Admin', 'Moderator']" class="nav-item">
                     <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin Panel</a>
                 </li>
-                <li class="nav-item">
+                <li *appHasRole="['Admin']" class="nav-item">
                     <a class="nav-link" routerLink="/errors" routerLinkActive="active">Error pages</a>
                 </li>
             </ng-container>
@@ -26,7 +26,7 @@
         <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
             <img src="{{user.photoUrl || './assets/user.png'}}" alt="user photo">
             <a class="dropdown-toggle text-light text-decoration-none ms-2" dropdownToggle>Settings</a>
-            <div class="dropdown-menu mt-3" *dropdownMenu>
+            <div class="dropdown-menu mt-1" *dropdownMenu>
                 <a class="dropdown-item" routerLink="/member/edit">Edit my profile</a>
                 <a class="dropdown-item" (click)="logout()">Log out</a>
             </div>

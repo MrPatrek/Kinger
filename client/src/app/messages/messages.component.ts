@@ -12,6 +12,7 @@ export class MessagesComponent implements OnInit {
   messages?: Message[];   // this line is the same as:        messages: Message[] | undefined;
   pagination?: Pagination;
   container = 'Unread';
+  tabelColNames: string[] = [];
   pageNumber = 1;
   pageSize = 5;
   loading = false;
@@ -24,6 +25,14 @@ export class MessagesComponent implements OnInit {
 
   loadMessages() {
     this.loading = true;
+
+    if (this.container === 'Unread' || this.container === 'Inbox') {
+      this.tabelColNames = ['From', 'Received'];
+    }
+    else {        // we expect only one 'else' option, which is: this.container === 'Outbox'
+      this.tabelColNames = ['To', 'Sent'];
+    }
+
     this.messageService.getMessages(this.pageNumber, this.pageSize, this.container).subscribe({
       next: response => {
         this.messages = response.result;

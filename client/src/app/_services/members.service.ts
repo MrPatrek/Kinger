@@ -20,14 +20,28 @@ export class MembersService {
   userParams: UserParams | undefined;
 
   constructor(private http: HttpClient, private accountService: AccountService) {         // injecting services into services is fine, unless you create a service dependency cycle with this
-    this.accountService.currentUser$.pipe(take(1)).subscribe({
+    // This was before I introduced "clearing of the cache" after loging out:
+    // this.accountService.currentUser$.pipe(take(1)).subscribe({
+    // Now it is:
+    this.accountService.currentUser$.subscribe({        // track the changes of currentUser$
       next: user => {
-        if (user) {
+        if (user) {         // when user logs in
           this.userParams = new UserParams(user);
           this.user = user;
         }
+        // else statement was not present until "clearing of the cache" after loging out was introduced:
+        else {              // when user logs out
+          this.clearMemberCacheOnLogOut();
+        }
       }
     })
+  }
+
+  clearMemberCacheOnLogOut() {
+    this.members = [];
+    this.memberCache = new Map();
+    this.user = undefined;
+    this.userParams = undefined;
   }
 
   getUserParams() {

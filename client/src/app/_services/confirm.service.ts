@@ -12,10 +12,10 @@ export class ConfirmService {
   constructor(private modalService: BsModalService) { }
 
   confirm(                      // it may look scary, but this is just a function which has some default input params (which can be overridden if needed)
-    title = 'Confirmation',
+    title = 'Confirmation required',
     message = 'Are you sure you want to do this?',
-    btnOkText = 'Ok',
-    btnCancelText = 'Cancel'
+    btnOkText = 'Yes',
+    btnCancelText = 'No, go back'
   ): Observable<boolean> {
     const config = {
       initialState: {

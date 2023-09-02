@@ -8,7 +8,7 @@ export const preventUnsavedChangesGuard: CanDeactivateFn<MemberEditComponent> = 
 
   if (component.editForm?.dirty) {
     // Old, ordinary "modal":
-    // return confirm('Are you sure you want to continue? Any unsaved changes will be lost')
+    // return confirm('Are you sure you want to continue? Any unsaved changes will be lost.')
 
     // New, nice-looking Bootstrap modal:
     return confirmService.confirm();

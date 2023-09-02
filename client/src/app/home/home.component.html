@@ -1,9 +1,9 @@
 <div class="container mt-5">
     <div *ngIf="!registerMode" style="text-align: center;">
-        <h1>Dating-focused social network</h1>
+        <h1>A dating-focused social network</h1>
 
         <div *ngIf="!(accountService.currentUser$ | async)">
-            <p class="lead">Register to find your love</p>
+            <p class="lead">Your second half is waiting for you</p>
             <div class="text-center">
                 <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Sign Up</button>
                 <!-- <button class="btn btn-primary btn-info btn-lg">Learn more</button> -->

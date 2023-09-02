@@ -41,11 +41,13 @@
             >
         </div>
 
-        <button class="btn btn-primary ms-1" type="submit">Apply filters</button>
-        <button (click)="resetFilters()" class="btn btn-info ms-1" type="submit">Reset filters</button>
+        <button class="btn btn-primary ms-1" type="submit">Apply</button>
+        <button (click)="resetFilters()" class="btn btn-info ms-1" type="submit">Reset</button>
 
         <div class="col">
             <div class="btn-group float-end">
+
+                <span class="col-form-label me-2">Sort by: </span>
                 
                 <!-- when clicked, "btnRadio" value will be set to the [(ngModel)], and (click) action performed afterwards -->
                 <button

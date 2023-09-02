@@ -23,15 +23,15 @@
                     <div class="chat-body">
                         <div class="header">
                             <small class="text-muted">
-                                <span class="fa fa-clock-o">{{message.messageSent | timeago}}</span>
+                                <span class="fa fa-clock-o"> {{message.messageSent | timeago}}</span>           <!-- space before {{}} is important so that there is some space between an icon and a text -->
 
-                                <span class="text-danger"
+                                <span class="text-danger small"
                                     *ngIf="!message.dateRead && message.senderUsername !== username"
                                 >
                                     (unread)
                                 </span>
 
-                                <span class="text-success"
+                                <span class="text-success small"
                                     *ngIf="message.dateRead && message.senderUsername !== username"
                                 >
                                     (read {{message.dateRead | timeago}})

@@ -77,3 +77,15 @@ info: Microsoft.Hosting.Lifetime[14]
 
 
 
+
+
+
+
+
+# Don't forget that from this moment on, after each change in the Angular code, you need to run 'ng build' to re-create static files for our client app so that server can serve them
+# and then restart our server , i.e. run 'dotnet run' so that server takes new static files
+
+
+
+
+

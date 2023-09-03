@@ -30,6 +30,9 @@ app.UseCors(builder => builder
 app.UseAuthentication();        // Do you have a valid token?           E.g., you go to a night club.   Do you have a valid ID (not a fake one, but true one)?
 app.UseAuthorization();         // What are you allowed to do?                                          Are you over 18?
 
+app.UseDefaultFiles();          // will look for smth like 'index.htm' or 'index.html' from 'wwwroot' folder by default
+app.UseStaticFiles();           // will look for 'wwwroot' folder and serve the content from inside there
+
 app.MapControllers();
 app.MapHub<PresenceHub>("hubs/presence");
 app.MapHub<MessageHub>("hubs/message");

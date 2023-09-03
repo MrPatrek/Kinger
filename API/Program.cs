@@ -36,6 +36,7 @@ app.UseStaticFiles();           // will look for 'wwwroot' folder and serve the 
 app.MapControllers();
 app.MapHub<PresenceHub>("hubs/presence");
 app.MapHub<MessageHub>("hubs/message");
+app.MapFallbackToController("Index", "Fallback");           // first param is action that we want to call inside the controller, second param is the controller itself (full name is FallbackController, but here we need to omit the 'Controller' part)
 
 // Seed the user data to the database:
 using var scope = app.Services.CreateScope();

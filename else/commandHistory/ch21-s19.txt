@@ -123,5 +123,57 @@ eda1384288569718e406dbab22a6b8320858445825e33aa0aa203c034aea50a7
 
 # Also installed 'PostgreSQL' extension (the one from 'Chris Kolkman', the most popular one)
 
+# Now, when switching to the Postgres:
+
+    ~/DevProjects/dotnet/DatingApp-original    main !1  cd API                                           ✔ 
+    ~/DevProjects/dotnet/DatingApp-original/API    main !1  dotnet ef database drop                                               ✔ 
+Build started...
+Build succeeded.
+Are you sure you want to drop the database 'main' on server 'datingapp.db'? (y/N)
+y
+Dropping database 'main' on server 'datingapp.db'.
+Successfully dropped database 'main'.
+
+
+
+# Manually delete API/Data/Migrations folder (we will create a new one; old ones contain SQLite-specific stuff)
+
+
+
+# Then:
+
+    ~/DevProjects/dotnet/DatingApp-original    main !23 ?1  cd API                                                                        ✔ 
+    ~/Dev/dotnet/DatingApp-original/API    main !23 ?1  dotnet ef migrations add PostgresInitial -o Data/Migrations                       ✔ 
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+    ~/Dev/dotnet/DatingApp-original/API    main !23 ?1  dotnet run                                              
+
+
+[some error during seeding]
+
+
+
+
+
+
+# Whenever we drop the DB, when we run 'dotnet run', we automatically seed our DB (since it was just dropped), and if we get some error during seeding (which we then fix), it also means our DB was only partially seeded before. So, after each such case, we need to manually drop the DB again so that it will be empty, and so, it will then be again seeded (now hopefully without errors, otherwise this step will need to be repeated):
+
+    ~/DevProjects/dotnet/DatingApp-original    main !24 ?3  cd API                                                                        ✔ 
+    ~/Dev/dotnet/DatingApp-original/API    main !24 ?3  dotnet ef database drop                                                           ✔ 
+Build started...
+Build succeeded.
+Are you sure you want to drop the database 'datingapp' on server ''? (y/N)
+y
+Dropping database 'datingapp' on server ''.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      REVOKE CONNECT ON DATABASE datingapp FROM PUBLIC;
+      SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname = 'datingapp';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DROP DATABASE datingapp;
+Successfully dropped database 'datingapp'.
+    ~/Dev/d/DatingApp-original/API    main !24 ?3  dotnet run                                                                     ✔  16s  
 
 

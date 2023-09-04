@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.Json;
 using API.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +7,12 @@ namespace API.Data.Migrations
 {
     public class Seed
     {
+        public static async Task ClearConnections(DataContext context)
+        {
+            context.Connections.RemoveRange(context.Connections);               // this method is not that much efficient compared to the raw SQL queries like "delete from" or "truncate" in the table
+            await context.SaveChangesAsync();
+        }
+
         public static async Task SeedUsers(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             if (await userManager.Users.AnyAsync()) return;
@@ -35,6 +39,10 @@ namespace API.Data.Migrations
             {
 
                 user.UserName = user.UserName.ToLower();
+
+                // These two lines are important for the Postgres, otherwise an error will occur:
+                user.Created = DateTime.SpecifyKind(user.Created, DateTimeKind.Utc);
+                user.LastActive = DateTime.SpecifyKind(user.LastActive, DateTimeKind.Utc);
 
                 // context.Users.Add(user);
                 await userManager.CreateAsync(user, "Pa$$w0rd");

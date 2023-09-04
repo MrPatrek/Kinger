@@ -177,3 +177,104 @@ Successfully dropped database 'datingapp'.
     ~/Dev/d/DatingApp-original/API    main !24 ?3  dotnet run                                                                     ✔  16s  
 
 
+
+
+
+
+
+
+
+
+# After creating 'Dockerfile' and '.dockerignore' files:
+# Dockerizing our app
+
+    ~/DevProjects/dotnet/DatingApp-original    main ?2  cd API                                                                            ✔ 
+    ~/DevProjects/dotnet/DatingApp-original/API    main ?2  docker build -t mrpatrek/kinger .                                             ✔ 
+[+] Building 37.7s (15/15) FINISHED                                                                                             docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                            0.0s
+ => => transferring dockerfile: 418B                                                                                                            0.0s
+ => [internal] load .dockerignore                                                                                                               0.0s
+ => => transferring context: 54B                                                                                                                0.0s
+ => [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:7.0                                                                            0.9s
+ => [internal] load metadata for mcr.microsoft.com/dotnet/sdk:7.0                                                                               0.9s
+ => [stage-1 1/3] FROM mcr.microsoft.com/dotnet/aspnet:7.0@sha256:54a3864f1c7dbb232982f61105aa18a59b976382a4e720fe18b4af98fcd663a6              4.0s
+ => => resolve mcr.microsoft.com/dotnet/aspnet:7.0@sha256:54a3864f1c7dbb232982f61105aa18a59b976382a4e720fe18b4af98fcd663a6                      0.0s
+ => => sha256:14726c8f78342865030f97a8d3492e2d1a68fbd22778f9a31dc6be4b4f12a9bc 31.42MB / 31.42MB                                                1.2s
+ => => sha256:6c3981608c2b6b3825fe63b9c920101d7bf4ca80ceda7ddc0dc09fdc93a5797d 14.97MB / 14.97MB                                                0.6s
+ => => sha256:a2e354eccee4ad7336b4692c2662de61a68677cec551530c6d7045bcbb3cd6d7 32.45MB / 32.45MB                                                1.9s
+ => => sha256:54a3864f1c7dbb232982f61105aa18a59b976382a4e720fe18b4af98fcd663a6 1.82kB / 1.82kB                                                  0.0s
+ => => sha256:6261b1c7c11786341b6fa46f8fee00f52643a2a799f989eaf406064163b015be 1.37kB / 1.37kB                                                  0.0s
+ => => sha256:63837b17b8fbc4a19c269fbf17abdb0cabb0205c352f115510b316cecb794cba 3.26kB / 3.26kB                                                  0.0s
+ => => sha256:cbca4ad4689cc576651411faa2b98dff307dc8f6de9adf08a5a2d6ae2239d233 154B / 154B                                                      0.7s
+ => => sha256:31e2a952779c41cf5cd187ae1ae276f3de3965a43d41a0250b56c58e1206db8a 10.12MB / 10.12MB                                                1.1s
+ => => extracting sha256:14726c8f78342865030f97a8d3492e2d1a68fbd22778f9a31dc6be4b4f12a9bc                                                       1.6s
+ => => extracting sha256:a2e354eccee4ad7336b4692c2662de61a68677cec551530c6d7045bcbb3cd6d7                                                      33.6s
+ => => extracting sha256:31e2a952779c41cf5cd187ae1ae276f3de3965a43d41a0250b56c58e1206db8a                                                      33.0s
+ => [build-env 1/6] FROM mcr.microsoft.com/dotnet/sdk:7.0@sha256:926b9337622ccc594ed051d3559f1c4544686c9fd5f4656f09d1fe37d9a5ace2              10.3s
+ => => resolve mcr.microsoft.com/dotnet/sdk:7.0@sha256:926b9337622ccc594ed051d3559f1c4544686c9fd5f4656f09d1fe37d9a5ace2                         0.0s
+ => => sha256:6c3981608c2b6b3825fe63b9c920101d7bf4ca80ceda7ddc0dc09fdc93a5797d 14.97MB / 14.97MB                                                0.6s
+ => => sha256:926b9337622ccc594ed051d3559f1c4544686c9fd5f4656f09d1fe37d9a5ace2 1.82kB / 1.82kB                                                  0.0s
+ => => sha256:93b7191fd296e4befb35c4440ab640b7322c0536f5aa9331229b77ac955b7c19 7.17kB / 7.17kB                                                  0.0s
+ => => sha256:a2e354eccee4ad7336b4692c2662de61a68677cec551530c6d7045bcbb3cd6d7 32.45MB / 32.45MB                                                1.9s
+ => => sha256:09b55190ab5c2a00d676678bdd1d702afc1aed8b505681fb4bd5979c62971e4a 2.01kB / 2.01kB                                                  0.0s
+ => => sha256:14726c8f78342865030f97a8d3492e2d1a68fbd22778f9a31dc6be4b4f12a9bc 31.42MB / 31.42MB                                                1.2s
+ => => sha256:cbca4ad4689cc576651411faa2b98dff307dc8f6de9adf08a5a2d6ae2239d233 154B / 154B                                                      0.7s
+ => => sha256:31e2a952779c41cf5cd187ae1ae276f3de3965a43d41a0250b56c58e1206db8a 10.12MB / 10.12MB                                                1.1s
+ => => sha256:6ecbf1fb37e17325876ded9c592f691f875695c9df5a16bd4c5ecd7fc2526533 25.37MB / 25.37MB                                                2.3s
+ => => sha256:6d8c48eeb4a8d2aa20e975cbaa5a6160df0baeb2acccebcc32a23a5e6ed6a9b2 181.16MB / 181.16MB                                              6.3s
+ => => extracting sha256:14726c8f78342865030f97a8d3492e2d1a68fbd22778f9a31dc6be4b4f12a9bc                                                       1.6s
+ => => sha256:2e9754864261a7fb02d063e91161ddc95ad63e2e75e0ba8fb4d604b0ebfa8ba1 13.90MB / 13.90MB                                                2.5s
+ => => extracting sha256:6c3981608c2b6b3825fe63b9c920101d7bf4ca80ceda7ddc0dc09fdc93a5797d                                                       0.3s
+ => => extracting sha256:a2e354eccee4ad7336b4692c2662de61a68677cec551530c6d7045bcbb3cd6d7                                                       0.5s
+ => => extracting sha256:cbca4ad4689cc576651411faa2b98dff307dc8f6de9adf08a5a2d6ae2239d233                                                       0.0s
+ => => extracting sha256:31e2a952779c41cf5cd187ae1ae276f3de3965a43d41a0250b56c58e1206db8a                                                       0.1s
+ => => extracting sha256:6ecbf1fb37e17325876ded9c592f691f875695c9df5a16bd4c5ecd7fc2526533                                                       0.9s
+ => => extracting sha256:6d8c48eeb4a8d2aa20e975cbaa5a6160df0baeb2acccebcc32a23a5e6ed6a9b2                                                       3.2s
+ => => extracting sha256:2e9754864261a7fb02d063e91161ddc95ad63e2e75e0ba8fb4d604b0ebfa8ba1                                                       0.4s
+ => [internal] load build context                                                                                                               0.0s
+ => => transferring context: 2.31MB                                                                                                             0.0s
+ => [stage-1 2/3] WORKDIR /app                                                                                                                  0.2s
+ => [build-env 2/6] WORKDIR /app                                                                                                                0.2s
+ => [build-env 3/6] COPY *.csproj ./                                                                                                            0.0s
+ => [build-env 4/6] RUN dotnet restore                                                                                                         20.6s
+ => [build-env 5/6] COPY . ./                                                                                                                   0.0s
+ => [build-env 6/6] RUN dotnet publish -c Release -o out                                                                                        5.2s
+ => [stage-1 3/3] COPY --from=build-env /app/out .                                                                                              0.1s
+ => exporting to image                                                                                                                          0.2s
+ => => exporting layers                                                                                                                         0.2s
+ => => writing image sha256:04c77ed53ade8256cfd6fc7634ed649081a5b561423e27362119dd84bd33c297                                                    0.0s
+ => => naming to docker.io/mrpatrek/kinger                                                                                                      0.0s
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+    ~/Dev/dotnet/DatingApp-original/API    main ?2  docker run --rm -it -p 8080:80 mrpatrek/kinger:latest                         ✔  38s  
+fail: Program[0]
+      An error occured during migration
+      System.ArgumentException: Host can't be null
+         at Npgsql.NpgsqlConnectionStringBuilder.PostProcessAndValidate()
+         at Npgsql.NpgsqlConnection.SetupDataSource()
+         at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+         at Npgsql.NpgsqlConnection..ctor(String connectionString)
+         at Npgsql.NpgsqlConnection.CloneWith(String connectionString)
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CloneWith(String connectionString)
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlDatabaseCreator.Exists(Boolean async, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.ExistsAsync(CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+         at Program.<Main>$(String[] args) in /app/Program.cs:line 49
+warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
+      Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {ed01f8f1-8523-49c4-9249-c3e33f2dd207} may be persisted to storage in unencrypted form.
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://[::]:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /app
+^Cinfo: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+
+
+

@@ -443,7 +443,7 @@ latest: digest: sha256:8cca0bd74b8263d2d182d58d2487d909d2bb35744de0a2162ffe87115
 
 
 
-# Now, actually deploying to the Fly.io:
+# (((1))) Now, actually deploying to the Fly.io:
 
 
 # ------------------ beginning of confidential section
@@ -472,6 +472,94 @@ latest: digest: sha256:8cca0bd74b8263d2d182d58d2487d909d2bb35744de0a2162ffe87115
 
 
 # ------------------ end of confidential section
+
+
+
+
+
+
+
+
+
+# After creating the config variables for Fly.io:
+
+# Important: dont't push whole project folder to the Docker Hub, push only the 'API' folder:
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp-original    main !2  cd API                                                                            ✔ 
+    ~/DevProjects/dotnet/DatingApp-original/API    main !2  docker build -t mrpatrek/kinger .                                             ✔ 
+[+] Building 6.5s (15/15) FINISHED                                                                                              docker:desktop-linux
+ => [internal] load .dockerignore                                                                                                               0.0s
+ => => transferring context: 54B                                                                                                                0.0s
+ => [internal] load build definition from Dockerfile                                                                                            0.0s
+ => => transferring dockerfile: 430B                                                                                                            0.0s
+ => [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:7.0                                                                            0.3s
+ => [internal] load metadata for mcr.microsoft.com/dotnet/sdk:7.0                                                                               0.3s
+ => [build-env 1/6] FROM mcr.microsoft.com/dotnet/sdk:7.0@sha256:926b9337622ccc594ed051d3559f1c4544686c9fd5f4656f09d1fe37d9a5ace2               0.0s
+ => [internal] load build context                                                                                                               0.0s
+ => => transferring context: 9.68kB                                                                                                             0.0s
+ => [stage-1 1/3] FROM mcr.microsoft.com/dotnet/aspnet:7.0@sha256:54a3864f1c7dbb232982f61105aa18a59b976382a4e720fe18b4af98fcd663a6              0.0s
+ => CACHED [build-env 2/6] WORKDIR /app                                                                                                         0.0s
+ => CACHED [build-env 3/6] COPY *.csproj ./                                                                                                     0.0s
+ => CACHED [build-env 4/6] RUN dotnet restore                                                                                                   0.0s
+ => [build-env 5/6] COPY . ./                                                                                                                   0.0s
+ => [build-env 6/6] RUN dotnet publish -c Release -o out                                                                                        5.6s
+ => CACHED [stage-1 2/3] WORKDIR /app                                                                                                           0.0s 
+ => [stage-1 3/3] COPY --from=build-env /app/out .                                                                                              0.1s 
+ => exporting to image                                                                                                                          0.2s 
+ => => exporting layers                                                                                                                         0.2s 
+ => => writing image sha256:e9471291a08147f56f6c844325fb4610a440f3f4d12d4bf57a7026a974b6754f                                                    0.0s 
+ => => naming to docker.io/mrpatrek/kinger                                                                                                      0.0s
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+
+
+
+    ~/DevProjects/dotnet/DatingApp-original/API    main !3  docker push mrpatrek/kinger:latest                                            ✔ 
+The push refers to repository [docker.io/mrpatrek/kinger]
+09ea61b928b8: Pushed 
+2d010149b662: Layer already exists 
+b260d977135d: Layer already exists 
+c65e011b79f6: Layer already exists 
+7af65d5c9e2a: Layer already exists 
+a5511d7cb706: Layer already exists 
+63290f9c9e52: Layer already exists 
+latest: digest: sha256:7beced9995b7633e10800626b29cddd0de6d4192e648c74dd9ffc78ad8d799db size: 1790
+
+
+
+
+
+
+# Now, when actually deploting to the Fly.io, go back to the general project folder:
+
+cd ..
+
+
+
+
+
+# (((2))) This time ACTUALLY deploying to the Fly.io (not like at (((1))) where we have just set things up):
+
+
+
+
+
+# ------------------ beginning of confidential section
+
+
+
+    ~/DevProjects/dotnet/DatingApp-original    main !3  fly deploy                                                                        ✔ 
+
+
+
+# ------------------ end of confidential section
+
+
 
 
 

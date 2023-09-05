@@ -435,3 +435,45 @@ latest: digest: sha256:8cca0bd74b8263d2d182d58d2487d909d2bb35744de0a2162ffe87115
 
 
 
+
+
+
+
+
+
+
+
+# Now, actually deploying to the Fly.io:
+
+
+# ------------------ beginning of confidential section
+
+
+
+    ~/DevProjects/dotnet/DatingApp-original    main !1 ?1  fly launch --image mrpatrek/kinger:latest                                      ✔ 
+
+# Secrets:
+
+    ~/DevProjects/dotnet/DatingApp-original    main !3 ?2  fly secrets list                                                               ✔ 
+
+
+    ~/DevProjects/dotnet/DatingApp-original    main !3 ?2  fly secrets set CloudinarySettings__ApiSecret=SeCrEt      ✔ 
+
+
+
+
+
+    ~/DevProjects/dotnet/DatingApp-original    main !3 ?2  fly secrets set TokenKey=sEcReT                      ✔ 
+
+
+    ~/DevProjects/dotnet/DatingApp-original    main !3 ?2  fly secrets list                                                               ✔ 
+
+
+
+
+# ------------------ end of confidential section
+
+
+
+
+

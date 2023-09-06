@@ -683,3 +683,13 @@ dotnet run
 
 
 
+
+
+
+
+
+
+
+# For the continuous deployment with Fly.io and GitHub Actions, copy the FLY_API_TOKEN from the output of the command below and create a new repository secret for the corresponding value in this GitHub repo
+
+    ~/DevProjects/dotnet/Kinger-original    main !1  fly auth token                                                                       ✔ 

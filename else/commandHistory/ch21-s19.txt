@@ -618,3 +618,68 @@ cd ..
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# If you want to open a port to access the DB:
+
+    ~/DevProjects/dotnet/Kinger-original    main  fly proxy 6543:5432 -a kinger-db            ✔ 
+Proxying local port 6543 to remote [kinger-db.internal]:5432
+
+# Then, you can use e.g. 'PostgreSQL Explorer' extension from VSCode in order to access the DB using the port above (the first one, 6543). You can actually choose any port number, 6543 is here just for this example
+# In this case, we would enter 'localhost' for the hostname of the DB, 'postgres' for the Postgres user, the password for him (which you have saved before in e.g. your personal corresponding secrets text file), port number as stated above (6543), 'use standard connection', and then select the DB itself.
+
+
+
+
+
+
+
+
+
+
+# In order to SEE the output of a terminal of the current running server app:
+
+    ~/DevProjects/dotnet/Kinger-original    main  fly logs -a kinger                                                      ✔ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# When you have some stuff to fix in the app, just use the development environment as before (don't forget to run the Docker container of Postgres DB beforehand):
+
+cd API && dotnet run
+cd client && ng serve
+
+
+
+
+# Then, when you're done with fixing stuff, for Angular run:
+ng build 
+
+
+# And as always, to run the server (locally) afterwards, just run:
+dotnet run
+
+
+

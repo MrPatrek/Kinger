@@ -14,7 +14,7 @@ namespace API.DTOs
         [Required] public string Country { get; set; }
 
         [Required]
-        [StringLength(8, MinimumLength = 4)]
+        // [StringLength(8, MinimumLength = 4)]                // this was required before the ASP.NET Identity was introduced, so no need to leave it here now
         public string Password { get; set; }
     }
 }

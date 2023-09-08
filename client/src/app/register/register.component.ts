@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
       dateOfBirth: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(6), this.checkUppercase(), this.checkLowercase()]],
       confirmPassword: ['', [Validators.required, this.matchValues('password')]],
     });
 
@@ -45,6 +45,18 @@ export class RegisterComponent implements OnInit {
   matchValues(matchTo: string): ValidatorFn {
     return (control: AbstractControl) => {
       return control.value === control.parent?.get(matchTo)?.value ? null : {notMatching: true}   // we will later use this "notMatching" in the html part...
+    }
+  }
+
+  checkUppercase(): ValidatorFn {
+    return (control: AbstractControl) => {
+      return /[A-Z]/.test(control.value) ? null : {notUppercase: true}
+    }
+  }
+
+  checkLowercase(): ValidatorFn {
+    return (control: AbstractControl) => {
+      return /[a-z]/.test(control.value) ? null : {notLowercase: true}
     }
   }
 

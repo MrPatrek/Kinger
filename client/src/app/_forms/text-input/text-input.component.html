@@ -20,4 +20,10 @@
     <div class="invalid-feedback" *ngIf="control.errors?.['notMatching']">
         Passwords do not match
     </div>
+    <div class="invalid-feedback" *ngIf="control.errors?.['notUppercase']">
+        Please include at least one <b>uppercase</b> character
+    </div>
+    <div class="invalid-feedback" *ngIf="control.errors?.['notLowercase']">
+        Please include at least one <b>lowercase</b> character
+    </div>
 </div>

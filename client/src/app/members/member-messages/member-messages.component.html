@@ -13,14 +13,14 @@
         <ul *ngIf="(messageService.messageThread$ | async)!.length > 0" class="chat">       <!-- '!' instead of '?' because of TS warning (we know messageThread$ can't be undefined, so we "bypass" TS warning) -->
             <li *ngFor="let message of (messageService.messageThread$ | async)">
                 <div>
-                    <span class="chat-img float-end">
+                    <span class="chat-img" [ngClass]="message.senderUsername === currentUser?.username ? 'float-start' : 'float-end'">
                         <img
                             class="rounded-circle"
                             src="{{message.senderPhotoUrl || './assets/user.png'}}"
                             alt="image of user"
                         >
                     </span>
-                    <div class="chat-body">
+                    <div class="chat-body" [ngClass]="message.senderUsername === currentUser?.username ? 'text-end' : 'text-start'">
                         <div class="header">
                             <small class="text-muted">
                                 <span class="fa fa-clock-o"> {{message.messageSent | timeago}}</span>           <!-- space before {{}} is important so that there is some space between an icon and a text -->

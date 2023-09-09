@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TimeagoModule } from 'ngx-timeago';
+import { take } from 'rxjs';
+import { User } from 'src/app/_models/user';
+import { AccountService } from 'src/app/_services/account.service';
 import { MessageService } from 'src/app/_services/message.service';
 
 @Component({
@@ -17,8 +20,13 @@ export class MemberMessagesComponent implements OnInit {
   @Input() username?: string;
   messageContent = '';
   loading = false;
+  currentUser: User | null = null;
 
-  constructor(public messageService: MessageService) { }
+  constructor(public messageService: MessageService, public accountService: AccountService) {
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
+      next: user => this.currentUser = user
+    })
+  }
 
   ngOnInit(): void { }
 
